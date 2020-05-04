@@ -13,7 +13,7 @@ int main(int ac, char *av[])
 				return ft_print_error();
 		else 
 			ft_principal(ac - 1, &av[1]);
-		system("leaks a.out");
+		// system("leaks a.out");
 	}
 }
 
