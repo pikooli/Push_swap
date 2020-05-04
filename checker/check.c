@@ -4,7 +4,7 @@ int ft_check_entry(int num, char **tab)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	while (i < num)
 		if (!ft_only_number(tab[i++]))
 			return FALSE;

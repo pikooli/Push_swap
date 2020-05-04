@@ -36,19 +36,20 @@ t_list *ft_list();
 
 // free function
 t_maille *ft_free_list(t_maille *begin);
+int	ft_free_tab(char **tab);
+int ft_strfree(char *str);
+char	**ft_free_tab_num(int size, char **tab);
 
 // print function
 void ft_putstr(char *str);
 void ft_print_list(t_maille *begin);
-void    ft_print_error();
+int    ft_print_error();
 void ft_putnbr(int numb);
 int    ft_print_ok();
 int    ft_print_ko();
 
 // instruction
 int    ft_instruction(t_list *a, t_list *b);
-
-// commande
 int    ft_sa(t_list *a);
 int    ft_sb(t_list *b);
 int    ft_ss(t_list *a, t_list *b);
@@ -63,8 +64,14 @@ int    ft_rrr(t_list *a, t_list *b);
 
 
 
-
+// utility
 int ft_atoi(char *str);
 int ft_strcmp(char *str1, char *str2);
+int ft_tab_length(char **tab);
+char *ft_append(char *str1, char *str2);
+int ft_strlen(char *str);
+
+//split
+char **ft_split(char *str, char cara);
 
 #endif

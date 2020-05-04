@@ -1,21 +1,29 @@
 #include "main.h"
 
-
 int    ft_instruction(t_list *a, t_list *b)
 {
     char buf[10];
     int ret;
-    
+    char **tab;
+    char *cmd;
+
+    if (!(cmd = malloc(sizeof(char)* 1)))
+        return FALSE;
+    cmd[0] = '\0';
     while((ret = read(0, buf, 5)))
     {
-        if (buf[0] == '\n')
-            break;
-        if (ret < 2 || ret > 4)
-            return FALSE;
-        buf[ret - 1] = '\0';
-        if (!(ft_check_instruction(buf, a, b)))
+        buf[ret] = '\0';
+        if(!(cmd = ft_append(cmd, buf)))
             return FALSE;
     }
+    if (!(tab = ft_split(cmd, '\n')))
+        return ft_strfree(cmd);
+    free(cmd);
+    ret = 0;
+    while (tab[ret])
+        if (!(ft_check_instruction(tab[ret++], a, b)))
+                return ft_free_tab(tab);
+    ft_free_tab(tab);
     return ft_check_final(a, b);
 }
 
