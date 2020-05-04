@@ -39,10 +39,10 @@ void	ft_principal(int num, char **av)
 	a->numb = num;
 	if (!ft_instruction(a, b))
 		ft_print_error();
-	// ft_putstr("list a\n");
-	// ft_print_list(a->begin);
-	// ft_putstr("list b\n");
-	// ft_print_list(b->begin);
+	ft_putstr("list a\n");
+	ft_print_list(a->begin);
+	ft_putstr("list b\n");
+	ft_print_list(b->begin);
 
 	ft_free_list(a->begin);
 	ft_free_list(b->begin);

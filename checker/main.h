@@ -65,7 +65,7 @@ int    ft_rrr(t_list *a, t_list *b);
 
 
 // utility
-int ft_atoi(char *str);
+long ft_atoi(char *str);
 int ft_strcmp(char *str1, char *str2);
 int ft_tab_length(char **tab);
 char *ft_append(char *str1, char *str2);
