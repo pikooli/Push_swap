@@ -55,11 +55,11 @@ int ft_check_double(int num, char **tab)
 {
 	int i;
 	int j;
-
-	i = 1;
+	
+	i = 0;
 	while(i < num)
 	{
-		j = 1;
+		j = 0;
 		while(j < i)
 			if(ft_strcmp(tab[j++], tab[i]))
 				return TRUE;
