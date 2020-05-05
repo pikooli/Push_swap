@@ -1,16 +1,29 @@
 #include "main.h"
 
-int ft_check_entry(int num, char **tab)
+int ft_check_entry(int num, char **tab, t_option *option)
 {
 	int i;
-
-	i = 0;
+	
+	
+	i = ft_set_option(num, tab, option);
 	while (i < num)
 		if (!ft_only_number(tab[i++]))
 			return FALSE;
 	if (ft_check_double(num, tab))
 		return FALSE;
 	return TRUE;
+}
+
+int ft_set_option(int num, char **tab, t_option *option)
+{
+	option->print = ft_strcmp(tab[0], "-v");
+	option->color = ft_strcmp(tab[0], "-c");
+	if (num > 1)
+	{
+		option->print = option->print ? option->print : ft_strcmp(tab[1], "-v");
+		option->color = option->color ? option->color : ft_strcmp(tab[1], "-c");
+	}
+	return option->print + option->color;
 }
 
 int ft_only_number(char *str)

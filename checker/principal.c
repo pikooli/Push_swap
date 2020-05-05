@@ -1,7 +1,7 @@
 
 #include "main.h"
 
-void	ft_principal(int num, char **av, int option)
+void	ft_principal(int num, char **av, t_option option)
 {
 	t_list *a;
 	t_list *b;
@@ -23,7 +23,7 @@ void	ft_principal(int num, char **av, int option)
 	a->numb = num;
 	if (!ft_instruction(a, b))
 		ft_print_error();
-    if (option)
+    if (option.print)
         ft_print_result(a, b);
 	ft_free_list(a->begin);
 	ft_free_list(b->begin);
@@ -31,10 +31,11 @@ void	ft_principal(int num, char **av, int option)
 	free(b);
 }
 
-int 	ft_one_argu(char *str)
+int 	ft_one_argu(char *str, t_option *option)
 {
 	char **tab;
 	int size;
+    int i;
 
 	if (!(tab = ft_split(str, ' ')))
 		return ft_print_error();
@@ -43,20 +44,13 @@ int 	ft_one_argu(char *str)
         ft_free_tab(tab);
 		return 0;
     }
-    if (ft_strcmp(tab[0], "-v"))
-	{
-        if (!ft_check_entry(size - 1, &tab[1]))
-			ft_print_error();
-		else 
-            ft_principal(size - 1, &tab[1], TRUE);
+    if (!ft_check_entry(size, tab, option))
+	{   
+        ft_free_tab(tab);
+    	return ft_print_error();
     }
-    else
-    {
-        if (!ft_check_entry(size, tab))
-			ft_print_error();
-        else
-            ft_principal(size, tab, FALSE);
-    }
+    i = option->print + option->color;
+    ft_principal(size - i, &tab[i], *option);
 	ft_free_tab(tab);
 	return 0;
 }

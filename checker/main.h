@@ -21,19 +21,28 @@ typedef struct s_list
     int         numb;
 }               t_list;
 
+typedef struct s_option
+{
+    int val1;
+    int val2;
+    int color;
+    int print;
+}               t_option;
+
 
 // principal function
 
-void	ft_principal(int num, char **av, int option);
-int 	ft_one_argu(char *str);
+void	ft_principal(int num, char **av, t_option option);
+int 	ft_one_argu(char *str, t_option *option);
 
 
 // check function 
 int ft_only_number(char *str);
-int ft_check_entry(int num, char **tab);
+int ft_check_entry(int num, char **tab, t_option *option);
 int ft_check_instruction(char buf[4], t_list *a, t_list *b);
 int ft_check_double(int num, char **tab);
 int ft_check_final(t_list *a, t_list *b);
+int ft_set_option(int num, char **tab, t_option *option);
 
 // malloc function
 t_maille *ft_copy_av(int num, char *av[]);
@@ -55,6 +64,7 @@ void ft_putnbr(int numb);
 int    ft_print_ok();
 int    ft_print_ko();
 void    ft_print_result(t_list *a, t_list *b);
+void    ft_print_tab(char **tab);
 
 
 // instruction

@@ -61,3 +61,17 @@ void    ft_print_result(t_list *a, t_list *b)
 	ft_putstr("list b\n");
 	ft_print_list(b->begin);
 }
+
+void    ft_print_tab(char **tab)
+{
+    int i;
+
+    i = 0;
+    while (tab[i])
+    {
+        ft_putstr(tab[i++]);
+        ft_putstr("\n");
+    }
+}
+
+// printf("option print = %d\noption color = %d\n", option.print, option.color);
