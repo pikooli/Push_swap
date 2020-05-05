@@ -78,6 +78,7 @@ int	ft_free_tab(char **tab);
 int ft_strfree(char *str);
 char	**ft_free_tab_num(int size, char **tab);
 void	*ft_free_listall(t_list *list);
+void	ft_free_instructions(t_instructions *instructions);
 
 // print function
 void ft_putstr(char *str);

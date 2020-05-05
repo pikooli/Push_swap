@@ -1,6 +1,22 @@
 #include "main.h"
 
 
+void	ft_free_instructions(t_instructions *instructions)
+{
+	t_instruction *begin;
+	t_instruction *tmp;
+	
+	begin = instructions->first;
+	while (begin)
+	{
+		tmp = begin->next;
+		free(begin);
+		begin = tmp;
+	}
+	free(instructions);
+}
+
+
 t_maille *ft_free_list(t_maille *begin)
 {
 	t_maille *tmp;
