@@ -1,7 +1,7 @@
 
 #include "main.h"
 
-void	ft_principal_checker(int num, char **av, t_option option)
+void	ft_principal_checker(int num, char **av, t_option *option)
 {
 	t_list *a;
 	t_list *b;
@@ -21,10 +21,10 @@ void	ft_principal_checker(int num, char **av, t_option option)
 		return;
 	}
 	a->numb = num;
-	if (!ft_instruction(a, b))
+	if (!ft_instruction(a, b, option))
 		ft_print_error();
-    if (option.print)
-        ft_print_result(a, b);
+    if (option->print)
+        ft_print_result(a, b, *option);
 	ft_free_list(a->begin);
 	ft_free_list(b->begin);
 	free(a);

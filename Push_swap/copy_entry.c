@@ -1,8 +1,5 @@
 #include "main.h"
 
-t_maille *ft_create_maille(int i, char **av);
-
-
 t_maille *ft_copy_av(int num, char *av[])
 {
 	int i;

@@ -1,6 +1,6 @@
 #include "main.h"
 
-void ft_print_list(t_maille *a, t_maille *b)
+void ft_print_list(t_maille *a, t_maille *b, t_option option)
 {
     int i;
 
@@ -10,13 +10,19 @@ void ft_print_list(t_maille *a, t_maille *b)
         i = 14;
         if (a)
         {    
+            option.val1 == a->val && option.color ? ft_putstr("\e[1;31m"): 0;
             ft_putnbr(a->val);
             i -= ft_length_numb(a->val);
-
+            ft_putstr("\e[1;0m");
         }
         while(i-- > 0)
             ft_putstr(" ");
-        b ? ft_putnbr(b->val) : 0;
+        if (b)
+        {
+            option.val1 == b->val && option.color ? ft_putstr("\e[1;31m"): 0;
+            ft_putnbr(b->val);
+            ft_putstr("\e[1;0m");
+        }
         ft_putstr("\n");
         a = a ? a->next : NULL;
         b = b ? b->next : NULL; 
@@ -67,9 +73,9 @@ int    ft_print_ko()
     return TRUE;
 }
 
-void    ft_print_result(t_list *a, t_list *b)
+void    ft_print_result(t_list *a, t_list *b, t_option option)
 {
-	ft_print_list(a->begin, b->begin);
+	ft_print_list(a->begin, b->begin, option);
 }
 
 void    ft_print_tab(char **tab)

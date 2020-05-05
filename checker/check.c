@@ -37,30 +37,30 @@ int ft_only_number(char *str)
 	return TRUE;
 }
 
-int ft_check_instruction(char buf[4], t_list *a, t_list *b)
+int ft_check_instruction(char buf[4], t_list *a, t_list *b, t_option *option)
 {
 	if (ft_strcmp(buf, "sa"))
-		return ft_sa(a);
+		return ft_sa(a, option);
 	else if (ft_strcmp(buf, "sb"))
-		return ft_sb(b);
+		return ft_sb(b, option);
 	else if (ft_strcmp(buf, "ss"))
-		return ft_ss(a, b);
+		return ft_ss(a, b, option);
 	else if (ft_strcmp(buf, "pa"))
-		return ft_pa(a, b);
+		return ft_pa(a, b, option);
 	else if (ft_strcmp(buf, "pb"))
-		return ft_pb(a, b);
+		return ft_pb(a, b, option);
 	else if (ft_strcmp(buf, "ra"))
-		return ft_ra(a);
+		return ft_ra(a, option);
 	else if (ft_strcmp(buf, "rb"))
-		return ft_rb(b);
+		return ft_rb(b, option);
 	else if (ft_strcmp(buf, "rr"))
-		return ft_rr(a, b);
+		return ft_rr(a, b, option);
 	else if (ft_strcmp(buf, "rra"))
-		return ft_rra(a);
+		return ft_rra(a, option);
 	else if (ft_strcmp(buf, "rrb"))
-		return ft_rrb(b);
+		return ft_rrb(b, option);
 	else if (ft_strcmp(buf, "rrr"))
-		return ft_rrr(a, b);
+		return ft_rrr(a, b, option);
 	return FALSE;
 }
 

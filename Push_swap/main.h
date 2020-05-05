@@ -28,10 +28,23 @@ typedef struct s_option
     int print;
 }               t_option;
 
+typedef struct  s_instruction
+{
+    char *val;
+    struct s_instruction *next;
+}               t_instruction;
 
+typedef struct s_instructions
+{
+    t_instruction *first;
+    t_instruction *last;
+    int numb;
+}               t_instructions;
 
 // algo
-void    ft_algo(t_list *a, t_list *b, t_option *option);
+int    ft_algo(t_list *a, t_list *b, t_option *option);
+t_maille *ft_copy_list(t_maille *first);
+t_instructions *ft_test_algo(t_list *a, t_list *b, t_option *option);
 
 
 // principal function
@@ -48,17 +61,23 @@ int ft_check_double(int num, char **tab);
 int ft_check_final(t_list *a, t_list *b);
 int ft_set_option(int num, char **tab, t_option *option);
 
-// malloc function
+// copy_entry
 t_maille *ft_copy_av(int num, char *av[]);
+t_maille *ft_create_maille(int i, char **av);
+
+// malloc function
 char *ft_substr(char *str);
 t_maille *ft_new_elem(int val);
 t_list *ft_list();
+t_instructions *ft_create_instructions();
+t_instruction *ft_create_instruction(char *str);
 
 // free function
 t_maille *ft_free_list(t_maille *begin);
 int	ft_free_tab(char **tab);
 int ft_strfree(char *str);
 char	**ft_free_tab_num(int size, char **tab);
+void	*ft_free_listall(t_list *list);
 
 // print function
 void ft_putstr(char *str);
@@ -69,6 +88,7 @@ int    ft_print_ok();
 int    ft_print_ko();
 void    ft_print_result(t_list *a, t_list *b, t_option option);
 void    ft_print_tab(char **tab);
+void    ft_print_instruction(t_instructions *instructions);
 
 
 // instruction

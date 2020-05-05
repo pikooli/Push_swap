@@ -90,4 +90,13 @@ void    ft_print_tab(char **tab)
     }
 }
 
+void    ft_print_instruction(t_instructions *instructions)
+{
+    while(instructions->first)
+    {
+        ft_putstr(instructions->first->val);
+        ft_putstr("\n");
+        instructions->first = instructions->first->next;
+    }
+}
 // printf("option print = %d\noption color = %d\n", option.print, option.color);

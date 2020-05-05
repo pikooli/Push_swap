@@ -14,6 +14,13 @@ t_maille *ft_free_list(t_maille *begin)
 	return NULL;
 }
 
+void	*ft_free_listall(t_list *list)
+{
+	ft_free_list(list->begin);
+	free(list);
+	return NULL;
+}
+
 int ft_free_tab(char **tab)
 {
 	int i;

@@ -1,10 +1,13 @@
 #include "main.h"
 
 
-void    ft_algo(t_list *a, t_list *b, t_option *option)
+
+int    ft_algo(t_list *a, t_list *b, t_option *option)
 {
-    if (ft_check_final(a, b))
-        return ;
-    ft_sa(a, option);
-    ft_algo(a, b, option);
+    t_instructions *instruct;
+
+    if (!(instruct = ft_test_algo(a, b, option)))
+        return FALSE;
+    
+    return TRUE;
 }

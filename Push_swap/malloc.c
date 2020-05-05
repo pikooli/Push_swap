@@ -79,3 +79,47 @@ char *ft_append(char *str1, char *str2)
 	free(str1);
 	return dest;
 }
+
+
+t_maille *ft_copy_list(t_maille *first)
+{
+    t_maille *begin;
+    t_maille *tmp;
+
+    if(!(begin = ft_new_elem(first->val)))
+        return NULL;
+    tmp = begin;
+    first = first->next;
+    while(first)
+    {
+        if(!(tmp->next = ft_new_elem(first->val)))
+            return ft_free_list(begin);
+        first = first->next;
+        tmp = tmp->next;
+    }
+    return begin;
+}
+
+t_instructions *ft_create_instructions()
+{
+	t_instructions* ret;
+
+	if (!(ret = malloc(sizeof(t_instructions))))
+		return NULL;
+	ret->first = NULL;
+	ret->last = NULL;
+	ret->numb = 0;
+	return ret;
+}
+
+
+t_instruction *ft_create_instruction(char *str)
+{
+	t_instruction *ret;
+
+	if (!(ret = malloc(sizeof(t_instruction))))
+		return NULL;
+	ret->val = str;
+	ret->next = NULL;
+	return ret;
+}
