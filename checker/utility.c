@@ -43,3 +43,16 @@ int ft_tab_length(char **tab)
         i++;
     return i;
 }
+
+int ft_length_numb(int nb)
+{
+    int i;
+
+    i = 0;
+    while (nb != 0)
+    {   
+        i++;
+        nb /= 10;
+    }
+    return i;
+}

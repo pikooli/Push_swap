@@ -24,7 +24,6 @@ typedef struct s_list
 typedef struct s_option
 {
     int val1;
-    int val2;
     int color;
     int print;
 }               t_option;
@@ -58,7 +57,7 @@ char	**ft_free_tab_num(int size, char **tab);
 
 // print function
 void ft_putstr(char *str);
-void ft_print_list(t_maille *begin);
+void ft_print_list(t_maille *a, t_maille *b);
 int    ft_print_error();
 void ft_putnbr(int numb);
 int    ft_print_ok();
@@ -89,6 +88,7 @@ int ft_strcmp(char *str1, char *str2);
 int ft_tab_length(char **tab);
 char *ft_append(char *str1, char *str2);
 int ft_strlen(char *str);
+int ft_length_numb(int nb);
 
 //split
 char **ft_split(char *str, char cara);

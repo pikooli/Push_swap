@@ -1,12 +1,25 @@
 #include "main.h"
 
-void ft_print_list(t_maille *begin)
+void ft_print_list(t_maille *a, t_maille *b)
 {
-    while (begin)
+    int i;
+
+    ft_putstr("a             b\n");
+    while (a || b)
     {
-        ft_putnbr(begin->val);
+        i = 14;
+        if (a)
+        {    
+            ft_putnbr(a->val);
+            i -= ft_length_numb(a->val);
+
+        }
+        while(i-- > 0)
+            ft_putstr(" ");
+        b ? ft_putnbr(b->val) : 0;
         ft_putstr("\n");
-        begin = begin->next;
+        a = a ? a->next : NULL;
+        b = b ? b->next : NULL; 
     }
 }
 
@@ -56,10 +69,7 @@ int    ft_print_ko()
 
 void    ft_print_result(t_list *a, t_list *b)
 {
-    ft_putstr("list a\n");
-	ft_print_list(a->begin);
-	ft_putstr("list b\n");
-	ft_print_list(b->begin);
+	ft_print_list(a->begin, b->begin);
 }
 
 void    ft_print_tab(char **tab)
