@@ -21,8 +21,8 @@ void	ft_principal_push_swap(int num, char **av, t_option option)
 		return;
 	}
 	a->numb = num;
-	if (!ft_instruction(a, b))             // !!!!! mettre les fonction algoa changer ici 
-		ft_print_error();
+	// if (!ft_instruction(a, b))             // !!!!! mettre les fonction algoa changer ici 
+		// ft_print_error();
     if (option.print)
         ft_print_result(a, b);
 	ft_free_list(a->begin);

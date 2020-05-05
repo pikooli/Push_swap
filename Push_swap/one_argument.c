@@ -19,7 +19,7 @@ int 	ft_one_argu(char *str, t_option *option)
     	return ft_print_error();
     }
     i = option->print + option->color;
-    ft_principal_checker(size - i, &tab[i], *option);
+    ft_principal_push_swap(size - i, &tab[i], *option);
 	ft_free_tab(tab);
 	return 0;
 }
