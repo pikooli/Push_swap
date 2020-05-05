@@ -1,7 +1,5 @@
 #include "main.h"
 
-
-
 int main(int ac, char *av[])
 {
 	t_option option;
@@ -16,8 +14,8 @@ int main(int ac, char *av[])
 		else
 		{
 			i = option.print + option.color + 1;
-			ft_principal(ac - i, &av[i], option);
+			ft_principal_checker(ac - i, &av[i], option);
 		}
-		system("leaks a.out");
+		// system("leaks a.out");
 	}
 }

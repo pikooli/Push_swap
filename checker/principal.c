@@ -1,7 +1,7 @@
 
 #include "main.h"
 
-void	ft_principal(int num, char **av, t_option option)
+void	ft_principal_checker(int num, char **av, t_option option)
 {
 	t_list *a;
 	t_list *b;
@@ -50,7 +50,7 @@ int 	ft_one_argu(char *str, t_option *option)
     	return ft_print_error();
     }
     i = option->print + option->color;
-    ft_principal(size - i, &tab[i], *option);
+    ft_principal_checker(size - i, &tab[i], *option);
 	ft_free_tab(tab);
 	return 0;
 }
