@@ -53,3 +53,11 @@ int    ft_print_ko()
     ft_putstr("KO\n");
     return TRUE;
 }
+
+void    ft_print_result(t_list *a, t_list *b)
+{
+    ft_putstr("list a\n");
+	ft_print_list(a->begin);
+	ft_putstr("list b\n");
+	ft_print_list(b->begin);
+}

@@ -21,6 +21,13 @@ typedef struct s_list
     int         numb;
 }               t_list;
 
+
+// principal function
+
+void	ft_principal(int num, char **av, int option);
+int 	ft_one_argu(char *str);
+
+
 // check function 
 int ft_only_number(char *str);
 int ft_check_entry(int num, char **tab);
@@ -47,6 +54,8 @@ int    ft_print_error();
 void ft_putnbr(int numb);
 int    ft_print_ok();
 int    ft_print_ko();
+void    ft_print_result(t_list *a, t_list *b);
+
 
 // instruction
 int    ft_instruction(t_list *a, t_list *b);
