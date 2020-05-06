@@ -12,6 +12,7 @@ void	ft_principal_push_swap(int num, char **av, t_option *option)
 		ft_print_error();
 		return ;
 	}
+	a->last = ft_last_list(a);
 	a->numb = num;
 	if (!ft_algo(a, option))
 		ft_print_error();

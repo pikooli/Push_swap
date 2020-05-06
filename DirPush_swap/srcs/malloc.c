@@ -8,6 +8,7 @@ t_list			*ft_list(void)
 		return (NULL);
 	ret->numb = 0;
 	ret->begin = NULL;
+	ret->last = NULL;
 	return (ret);
 }
 

@@ -97,34 +97,3 @@ int		ft_check_final(t_list *a, t_list *b)
 	return (TRUE);
 }
 
-int		ft_check_list(t_list *list)
-{
-	t_maille *tmp;
-
-	tmp = list->begin;
-	if (!tmp)
-		return (FALSE);
-	while (tmp->next)
-	{
-		if (tmp->val > tmp->next->val)
-			return (FALSE);
-		tmp = tmp->next;
-	}
-	return (TRUE);
-}
-
-int		ft_check_rev_list(t_list *list)
-{
-	t_maille *tmp;
-
-	tmp = list->begin;
-	if (!tmp)
-		return (FALSE);
-	while (tmp->next)
-	{
-		if (tmp->val < tmp->next->val)
-			return (FALSE);
-		tmp = tmp->next;
-	}
-	return (TRUE);
-}

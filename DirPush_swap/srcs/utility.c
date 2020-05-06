@@ -55,3 +55,4 @@ int		ft_length_numb(int nb)
 	}
 	return (i);
 }
+

@@ -18,6 +18,7 @@ typedef struct	s_maille
 typedef struct	s_list
 {
 	t_maille	*begin;
+	t_maille	*last;
 	int			numb;
 }				t_list;
 
@@ -56,6 +57,8 @@ void			*ft_test_algo(t_instructions *instruct, t_option *option,
 char *(*algo)(t_list *, t_list *, t_option *));
 
 char			*ft_algo_1_1(t_list *a, t_list *b, t_option *option);
+char 			*ft_algo_1_2(t_list *a, t_list *b, t_option *option);
+
 /*
 ** principal function
 */
@@ -75,6 +78,7 @@ int				ft_check_final(t_list *a, t_list *b);
 int				ft_set_option(int num, char **tab, t_option *option);
 int				ft_check_list(t_list *list);
 int				ft_check_rev_list(t_list *list);
+int				ft_top_is_the_bigger(t_list *list);
 
 /*
 ** copy_entry
@@ -99,7 +103,7 @@ int				ft_free_tab(char **tab);
 int				ft_strfree(char *str);
 char			**ft_free_tab_num(int size, char **tab);
 void			*ft_free_listall(t_list *list);
-void			ft_free_instructions(t_instructions *instructions);
+int				ft_free_instructions(t_instructions *instructions);
 
 /*
 ** print function
@@ -141,6 +145,17 @@ int				ft_tab_length(char **tab);
 char			*ft_append(char *str1, char *str2);
 int				ft_strlen(char *str);
 int				ft_length_numb(int nb);
+int				ft_bigger_in_list(t_list *list);
+
+
+/*
+**	list function
+*/
+t_maille		*ft_last_list(t_list *list);
+int				ft_smaller_in_list(t_list *list);
+int 			ft_list_ordoned(t_list *list);
+int				ft_less_diff(t_list *list, int val);
+int				ft_less_diff_b(t_list *a, t_list *b);
 
 /*
 **split

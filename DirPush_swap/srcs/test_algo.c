@@ -25,6 +25,7 @@ t_option *option, char *(*algo)(t_list *, t_list *, t_option *))
 	copy_a->numb = a->numb;
 	instruct->a = copy_a;
 	instruct->b = copy_b;
+	instruct->a->last = ft_last_list(copy_a);
 	ft_test_algo(instruct, option, (*algo));
 	return (instruct);
 }

@@ -1,6 +1,6 @@
 #include "main.h"
 
-void		ft_free_instructions(t_instructions *instructions)
+int			ft_free_instructions(t_instructions *instructions)
 {
 	t_instruction *begin;
 	t_instruction *tmp;
@@ -15,6 +15,7 @@ void		ft_free_instructions(t_instructions *instructions)
 	ft_free_listall(instructions->a);
 	ft_free_listall(instructions->b);
 	free(instructions);
+	return (FALSE);
 }
 
 t_maille	*ft_free_list(t_maille *begin)

@@ -10,7 +10,8 @@ test_algo.c\
 check.c\
 main.c\
 one_argument.c\
-split.c
+split.c\
+list_utilily.c
 
 ALGO = ft_algo_2/ft_algo_2.c\
 ft_algo_1/ft_algo_1.c

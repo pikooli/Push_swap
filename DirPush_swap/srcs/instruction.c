@@ -39,6 +39,8 @@ char	*ft_sa(t_list *a, t_option *option)
 		a->begin->next = tmp;
 		option->val1 = tmp->val;
 	}
+	if (a->numb == 2)
+		a->last = a->begin->next;
 	return ("sa");
 }
 
@@ -68,6 +70,12 @@ char	*ft_pa(t_list *a, t_list *b, t_option *option)
 	tmp->next = a->begin;
 	a->begin = tmp;
 	a->numb += 1;
+	if (a->numb == 1)
+		a->last = a->begin;
+	if (b->numb == 1)
+		b->last = b->begin;
+	if (b->numb == 0)
+			b->last = NULL;
 	return ("pa");
 }
 
@@ -92,6 +100,7 @@ char	*ft_ra(t_list *a, t_option *option)
 		last = last->next;
 	last->next = tmp;
 	option->val1 = tmp->val;
+	a->last = tmp;
 	return ("ra");
 }
 
@@ -123,6 +132,7 @@ char	*ft_rra(t_list *a, t_option *option)
 	last->next = a->begin;
 	a->begin = last;
 	option->val1 = last->val;
+	a->last = tmp;
 	return ("rra");
 }
 
