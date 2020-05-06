@@ -13,6 +13,8 @@ void	ft_free_instructions(t_instructions *instructions)
 		free(begin);
 		begin = tmp;
 	}
+	ft_free_listall(instructions->a);
+	ft_free_listall(instructions->b);
 	free(instructions);
 }
 

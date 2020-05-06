@@ -38,13 +38,24 @@ typedef struct s_instructions
 {
     t_instruction *first;
     t_instruction *last;
+    t_list          *a;
+    t_list          *b;
     int numb;
 }               t_instructions;
 
 // algo
 int    ft_algo(t_list *a, t_list *b, t_option *option);
 t_maille *ft_copy_list(t_maille *first);
-t_instructions *ft_test_algo(t_list *a, t_list *b, t_option *option);
+t_instructions *ft_prepare_algo(t_list *a, t_list *b, t_option *option, char *(*algo)(t_list *, t_list *, t_option *));
+void    *ft_test_algo(t_instructions *instruct ,t_option *option, char *(*algo)(t_list *, t_list *, t_option *));
+
+
+
+char *ft_algo_1_1(t_list *a, t_list *b, t_option *option);
+
+
+
+
 
 
 // principal function
@@ -56,7 +67,7 @@ int 	ft_one_argu(char *str, t_option *option);
 // check function 
 int ft_only_number(char *str);
 int ft_check_entry(int num, char **tab, t_option *option);
-int ft_check_instruction(char buf[4], t_list *a, t_list *b, t_option *option);
+char *ft_check_instruction(char buf[4], t_list *a, t_list *b, t_option *option);
 int ft_check_double(int num, char **tab);
 int ft_check_final(t_list *a, t_list *b);
 int ft_set_option(int num, char **tab, t_option *option);
@@ -89,22 +100,22 @@ int    ft_print_ok();
 int    ft_print_ko();
 void    ft_print_result(t_list *a, t_list *b, t_option option);
 void    ft_print_tab(char **tab);
-void    ft_print_instruction(t_instructions *instructions);
+void    ft_print_instruction(t_instructions *instructions, t_option option);
 
 
 // instruction
 int    ft_instruction(t_list *a, t_list *b, t_option *option);
-int    ft_sa(t_list *a,t_option *option);
-int    ft_sb(t_list *b,t_option *option);
-int    ft_ss(t_list *a, t_list *b,t_option *option);
-int    ft_pa(t_list *a, t_list *b,t_option *option);
-int    ft_pb(t_list *a, t_list *b,t_option *option);
-int    ft_ra(t_list *a,t_option *option);
-int    ft_rb(t_list *b,t_option *option);
-int    ft_rr(t_list *a, t_list *b,t_option *option);
-int    ft_rra(t_list *a,t_option *option);
-int    ft_rrb(t_list *b,t_option *option);
-int    ft_rrr(t_list *a, t_list *b,t_option *option);
+char    *ft_sa(t_list *a,t_option *option);
+char    *ft_sb(t_list *b,t_option *option);
+char    *ft_ss(t_list *a, t_list *b,t_option *option);
+char    *ft_pa(t_list *a, t_list *b,t_option *option);
+char    *ft_pb(t_list *a, t_list *b,t_option *option);
+char    *ft_ra(t_list *a,t_option *option);
+char    *ft_rb(t_list *b,t_option *option);
+char    *ft_rr(t_list *a, t_list *b,t_option *option);
+char    *ft_rra(t_list *a,t_option *option);
+char    *ft_rrb(t_list *b,t_option *option);
+char    *ft_rrr(t_list *a, t_list *b,t_option *option);
 
 
 

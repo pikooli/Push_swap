@@ -1,10 +1,6 @@
 #include "main.h"
-char *ft_algo_1_1(t_list *a, t_list *b, t_option *option);
 
-
-void   *ft_algo_1(t_list *a, t_list *b, t_option *option, t_instructions *instruct);
-
-t_instructions *ft_test_algo(t_list *a, t_list *b, t_option *option)
+t_instructions *ft_prepare_algo(t_list *a, t_list *b, t_option *option, char *(*algo)(t_list *, t_list *, t_option *))
 {
     t_list *copy_a;
     t_list *copy_b;
@@ -26,22 +22,21 @@ t_instructions *ft_test_algo(t_list *a, t_list *b, t_option *option)
         return NULL;
     }
     copy_a->numb = a->numb;
-    ft_algo_1(copy_a, copy_b, option, instruct);
-    ft_print_instruction(instruct);
-    // ft_print_result(copy_a, copy_b, *option);
-    ft_free_listall(copy_a);
-    ft_free_listall(copy_b);
+    instruct->a = copy_a;
+    instruct->b = copy_b;
+    ft_test_algo(instruct, option, (*algo));
     return instruct;
 }
 
-void    *ft_algo_1(t_list *a, t_list *b, t_option *option, t_instructions *instruct)
+void    *ft_test_algo(t_instructions *instruct ,t_option *option, char *(*algo)(t_list *, t_list *, t_option *))
 { 
     char *choice;
     t_instruction *tmp;
 
-    if (ft_check_final(a, b))
+    if (ft_check_final(instruct->a, instruct->b))
         return NULL;
-    choice = ft_algo_1_1(a, b, option);
+    instruct->numb += 1;
+    choice = (*algo)(instruct->a, instruct->b, option);
     if (!(tmp = ft_create_instruction(choice)))
         return NULL;
     if (!instruct->first)
@@ -54,12 +49,7 @@ void    *ft_algo_1(t_list *a, t_list *b, t_option *option, t_instructions *instr
         instruct->last->next = tmp;
         instruct->last = tmp;
     }
-    ft_algo_1(a, b, option, instruct);
+    ft_test_algo(instruct, option, (*algo));
     return NULL;
 }
 
-char *ft_algo_1_1(t_list *a, t_list *b, t_option *option)
-{
-    ft_ra(a, option);
-    return "ra";
-}

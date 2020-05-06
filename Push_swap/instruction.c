@@ -27,7 +27,7 @@ int    ft_instruction(t_list *a, t_list *b, t_option *option)
     return ft_check_final(a, b);
 }
 
-int    ft_sa(t_list *a,t_option *option)
+char    *ft_sa(t_list *a,t_option *option)
 {
     t_maille *tmp;
 
@@ -39,26 +39,28 @@ int    ft_sa(t_list *a,t_option *option)
         a->begin->next = tmp;
         option->val1 = tmp->val;
     }
-    return TRUE;
+    return "sa";
 }
 
-int    ft_sb(t_list *b,t_option *option)
+char    *ft_sb(t_list *b,t_option *option)
 {
-    return ft_sa(b, option);
+    ft_sa(b, option);
+    return "sb";
 }
 
-int    ft_ss(t_list *a, t_list *b,t_option *option)
+char    *ft_ss(t_list *a, t_list *b,t_option *option)
 {
     ft_sa(a, option);
-    return ft_sb(b, option);
+    ft_sb(b, option);
+    return "ss";
 }
 
-int    ft_pa(t_list *a, t_list *b,t_option *option)
+char    *ft_pa(t_list *a, t_list *b,t_option *option)
 {
     t_maille *tmp;
 
     if (b->numb == 0)
-        return TRUE;
+        return "pa";
     option->val1 = b->begin->val;
     tmp = b->begin;
     b->begin = b->begin->next;
@@ -66,21 +68,22 @@ int    ft_pa(t_list *a, t_list *b,t_option *option)
     tmp->next = a->begin;
     a->begin = tmp;
     a->numb += 1;
-    return TRUE; 
+    return "pa"; 
 }
 
-int    ft_pb(t_list *a, t_list *b,t_option *option)
+char    *ft_pb(t_list *a, t_list *b,t_option *option)
 {
-    return ft_pa(b, a, option);
+     ft_pa(b, a, option);
+     return "pb";
 }
 
-int    ft_ra(t_list *a,t_option *option)
+char    *ft_ra(t_list *a,t_option *option)
 {
     t_maille *tmp;
     t_maille *last;
 
     if (a->numb < 2)
-        return TRUE;
+        return "ra";
     tmp = a->begin;
     a->begin = a->begin->next;
     tmp->next = NULL;
@@ -89,27 +92,29 @@ int    ft_ra(t_list *a,t_option *option)
         last = last->next;
     last->next = tmp;
     option->val1 = tmp->val;
-    return TRUE;
+    return "ra";
 }
 
-int    ft_rb(t_list *b,t_option *option)
+char    *ft_rb(t_list *b,t_option *option)
 {
-    return ft_ra(b, option);
+    ft_ra(b, option);
+    return "rb";
 }
 
-int    ft_rr(t_list *a, t_list *b,t_option *option)
+char    *ft_rr(t_list *a, t_list *b,t_option *option)
 {
     ft_ra(a, option);
-    return ft_rb(b, option);
+    ft_rb(b, option);
+    return "rr";
 }
 
-int    ft_rra(t_list *a,t_option *option)
+char    *ft_rra(t_list *a,t_option *option)
 {
     t_maille *tmp;
     t_maille *last;
 
     if (a->numb < 2)
-        return TRUE;
+        return "rra";
     tmp = a->begin;
     while(tmp->next->next)
         tmp = tmp->next;
@@ -118,16 +123,18 @@ int    ft_rra(t_list *a,t_option *option)
     last->next = a->begin;
     a->begin = last;
     option->val1 =last->val;
-    return TRUE;
+    return "rra";
 }
 
-int    ft_rrb(t_list *b,t_option *option)
+char    *ft_rrb(t_list *b,t_option *option)
 {
-    return ft_rra(b, option);
+     ft_rra(b, option);
+     return "rrb";
 }
 
-int    ft_rrr(t_list *a, t_list *b,t_option *option)
+char    *ft_rrr(t_list *a, t_list *b,t_option *option)
 {
     ft_rra(a, option);
-    return ft_rrb(b, option);
+    ft_rrb(b, option);
+    return "rrr";
 }

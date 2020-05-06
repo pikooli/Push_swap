@@ -75,6 +75,7 @@ int    ft_print_ko()
 
 void    ft_print_result(t_list *a, t_list *b, t_option option)
 {
+    ft_putstr("---------------\n");
 	ft_print_list(a->begin, b->begin, option);
 }
 
@@ -90,14 +91,16 @@ void    ft_print_tab(char **tab)
     }
 }
 
-void    ft_print_instruction(t_instructions *instructions)
+void    ft_print_instruction(t_instructions *instructions, t_option option)
 {
     t_instruction *tmp;
 
     tmp = instructions->first;
     while(tmp)
     {
+        !tmp->next && option.color? ft_putstr("\e[1;31m") : 0;
         ft_putstr(tmp->val);
+        ft_putstr("\e[1;0m");
         ft_putstr("\n");
         tmp = tmp->next;
     }

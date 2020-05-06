@@ -23,8 +23,6 @@ void	ft_principal_push_swap(int num, char **av, t_option *option)
 	a->numb = num;
 	if (!ft_algo(a, b, option))
 		ft_print_error();
-    if (option->print)
-        ft_print_result(a, b, *option);
 	ft_free_list(a->begin);
 	ft_free_list(b->begin);
 	free(a);

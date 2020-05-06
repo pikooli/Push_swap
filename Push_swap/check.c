@@ -37,7 +37,7 @@ int ft_only_number(char *str)
 	return TRUE;
 }
 
-int ft_check_instruction(char buf[4], t_list *a, t_list *b, t_option *option)
+char *ft_check_instruction(char buf[4], t_list *a, t_list *b, t_option *option)
 {
 	if (ft_strcmp(buf, "sa"))
 		return ft_sa(a, option);
@@ -61,7 +61,7 @@ int ft_check_instruction(char buf[4], t_list *a, t_list *b, t_option *option)
 		return ft_rrb(b, option);
 	else if (ft_strcmp(buf, "rrr"))
 		return ft_rrr(a, b, option);
-	return FALSE;
+	return NULL;
 }
 
 int ft_check_double(int num, char **tab)
