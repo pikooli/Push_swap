@@ -16,7 +16,7 @@ int    ft_algo(t_list *a, t_list *b, t_option *option)
     // }
     ft_print_instruction(instruct, *option);
     if(option->print)
-        ft_print_result(instruct->a, instruct->b, *option);
+        ft_print_result(instruct, *option);
     ft_free_instructions(instruct);
     return TRUE;
 }

@@ -73,10 +73,13 @@ int    ft_print_ko()
     return TRUE;
 }
 
-void    ft_print_result(t_list *a, t_list *b, t_option option)
+void    ft_print_result(t_instructions *instruct, t_option option)
 {
     ft_putstr("---------------\n");
-	ft_print_list(a->begin, b->begin, option);
+	ft_print_list(instruct->a->begin, instruct->b->begin, option);
+    ft_putstr("number of step : ");
+    ft_putnbr(instruct->numb);
+    ft_putstr("\n");
 }
 
 void    ft_print_tab(char **tab)

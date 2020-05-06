@@ -101,7 +101,7 @@ int    ft_print_error();
 void ft_putnbr(int numb);
 int    ft_print_ok();
 int    ft_print_ko();
-void    ft_print_result(t_list *a, t_list *b, t_option option);
+void    ft_print_result(t_instructions *instruct, t_option option);
 void    ft_print_tab(char **tab);
 void    ft_print_instruction(t_instructions *instructions, t_option option);
 
