@@ -103,7 +103,7 @@ void    ft_print_instruction(t_instructions *instructions, t_option option)
     {
         !tmp->next && option.color? ft_putstr("\e[1;31m") : 0;
         ft_putstr(tmp->val);
-        ft_putstr("\e[1;0m");
+        !tmp->next && option.color?  ft_putstr("\e[1;0m"): 0;
         ft_putstr("\n");
         tmp = tmp->next;
     }
