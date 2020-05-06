@@ -16,6 +16,8 @@ int	main(int ac, char *av[])
 			i = option.print + option.color + 1;
 			ft_principal_push_swap(ac - i, &av[i], &option);
 		}
-		// system("leaks a.out");
 	}
 }
+/*
+** system("leaks a.out");
+*/
