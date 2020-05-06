@@ -1,14 +1,16 @@
 
 
 all:
-	cd Checker; make; cp checker ..
-	cd Push_swap; make; cp push_swap ..
+	cd DirChecker; make; cp checker ..
+	cd DirPush_swap; make; cp push_swap ..
 clean: 
-	cd Checker; make clean.
-	cd Push_swap; make clean
+	cd DirChecker; make clean
+	cd DirPush_swap; make clean
 
-fclean: clean
-	rm checker
-	rm push_swap
+fclean:
+	cd DirChecker; make fclean
+	cd DirPush_swap; make fclean
+	rm -rf checker
+	rm -rf push_swap
 
 	

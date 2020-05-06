@@ -18,7 +18,7 @@ FLAG = -Wall -Wextra -Werror
 CFLAGS = $(FLAG) -I include
 
 all : $(OBJS)
-	gcc $(FLAG) $(OBJS) -o Checker
+	gcc $(FLAG) $(OBJS) -o checker
 
 clean: 
 	rm -rf $(OBJS)
