@@ -71,6 +71,9 @@ char *ft_check_instruction(char buf[4], t_list *a, t_list *b, t_option *option);
 int ft_check_double(int num, char **tab);
 int ft_check_final(t_list *a, t_list *b);
 int ft_set_option(int num, char **tab, t_option *option);
+int	ft_check_list(t_list *list);
+int	ft_check_rev_list(t_list *list);
+
 
 // copy_entry
 t_maille *ft_copy_av(int num, char *av[]);
