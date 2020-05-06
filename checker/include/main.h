@@ -63,6 +63,7 @@ t_maille		*ft_free_list(t_maille *begin);
 int				ft_free_tab(char **tab);
 int				ft_strfree(char *str);
 char			**ft_free_tab_num(int size, char **tab);
+t_maille		*ft_create_maille(int i, char **av);
 
 /*
 ** print function
