@@ -5,6 +5,7 @@ int		ft_algo(t_list *a, t_option *option)
 	t_instructions *instruct;
 	t_instructions *tmp;
 
+	(void)tmp;
 	if (!(instruct = ft_prepare_algo(a, option, &ft_algo_1_1)))
 		return (FALSE);
 	// if (instruct->numb > tmp->numb)

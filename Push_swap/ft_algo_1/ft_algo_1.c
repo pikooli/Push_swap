@@ -1,7 +1,4 @@
-#include "main.h"
-
-char *ft_algo_b(t_list *a, t_list *b, t_option *option);
-char *ft_algo_a(t_list *a, t_list *b, t_option *option);
+#include "ft_algo_1.h"
 
 char	*ft_algo_1_1(t_list *a, t_list *b, t_option *option)
 {

@@ -8,12 +8,6 @@
 # define TRUE 1
 # define FALSE 0
 
-/*
-** when everything in A is in reverse order
-*/
-
-# define REVA 1
-
 typedef struct	s_maille
 {
 	int				val;
