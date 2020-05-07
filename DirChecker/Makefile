@@ -17,6 +17,9 @@ FLAG = -Wall -Wextra -Werror
 
 CFLAGS = $(FLAG) -I include
 
+%.o: %.c
+	@gcc $(CFLAGS) -o $@ -c $<
+
 all : $(OBJS)
 	gcc $(FLAG) $(OBJS) -o checker
 

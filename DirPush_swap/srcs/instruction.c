@@ -60,7 +60,7 @@ char	*ft_ss(t_list *a, t_list *b, t_option *option)
 char	*ft_pa(t_list *a, t_list *b, t_option *option)
 {
 	t_maille *tmp;
-
+	
 	if (b->numb == 0)
 		return ("pa");
 	option->val1 = b->begin->val;

@@ -24,6 +24,8 @@ CFLAGS = $(FLAG) -I include
 
 OBJS = $(SRCS:.c=.o) $(ALGO:.c=.o)
 
+%.o: %.c
+	@gcc $(CFLAGS) -o $@ -c $<
 
 all : $(OBJS)
 	gcc $(FLAG) $(OBJS) -o push_swap

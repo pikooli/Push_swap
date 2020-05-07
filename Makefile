@@ -29,6 +29,27 @@ test2:
 test3: 
 	make all
 	./push_swap -v 3 -1  2 1 9 10 -4 
+test4: 
+	make all
+	./push_swap -v 3 2147483647 -1  2 1 9 10 -4 -2147483648 0 
+test5: 
+	make all
+	./push_swap -v 3 -1  2 1 9 10 -4 
+test6: 
+	make all
+	./push_swap -v 3 -1  2 1 9 10 -4 
+test7: 
+	make all
+	./push_swap -v 3 -1  2 1 9 10 -4 
+
+testall:
+	make test
+	make test1
+	make test2
+	make test3
+	make test4
+	
+
 
 ra:	
 	make all
