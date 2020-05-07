@@ -17,6 +17,8 @@ int	main(int ac, char *av[])
 			ft_principal_checker(ac - i, &av[i], &option);
 		}
 	}
+	else
+		ft_print_error();
 }
 
 /*
