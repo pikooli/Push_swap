@@ -5,9 +5,8 @@ int		ft_algo(t_list *a, t_option *option)
 	t_instructions *instruct;
 	t_instructions *tmp;
 
+	instruct = NULL;
 	(void)tmp;
-	if (!(instruct = ft_prepare_algo(a, option, &ft_algo_1_1)))
-		return (FALSE);
 	if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_2)))
 		return (FALSE);
 	ft_print_step(instruct);
@@ -27,12 +26,17 @@ t_instructions *ft_best_algo(t_list *a, t_instructions *instruct, t_option *opti
 		ft_free_instructions(instruct);
 		return (NULL);
 	}
-	if (instruct->numb > tmp->numb)
+	if (instruct)
 	{
+		if (instruct->numb > tmp->numb)
+		{
 	         ft_free_instructions(instruct);
 	         instruct = tmp;
+		}
+		else 
+			ft_free_instructions(tmp);
 	}
 	else 
-		ft_free_instructions(tmp);
+		instruct = tmp;
 	return instruct;
 }
