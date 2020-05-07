@@ -45,6 +45,26 @@ int			ft_less_diff(t_list *list, int val)
 	return (TRUE);
 }
 
+int			ft_closer_big(t_list *list, int val)
+{
+	int diff;
+	int tmpdiff;
+	t_maille *tmp;
+	
+	tmp = list->begin;
+	diff = tmp->val - val;
+	diff = diff > 0 ? diff : -diff;
+	tmp = tmp->next;
+	while (tmp)
+	{
+		tmpdiff = (tmp->val - val) > 0 ? (tmp->val - val) : -(tmp->val - val);
+		if ((diff - tmpdiff) < 0 && tmp->val > val)
+			return (FALSE);
+		tmp = tmp->next;
+	}
+	return (TRUE);
+}
+
 int 		ft_list_ordoned(t_list *list)
 {
 	t_maille *next;

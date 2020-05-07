@@ -14,7 +14,9 @@ split.c\
 list_utilily.c
 
 ALGO = ft_algo_2/ft_algo_2.c\
-ft_algo_1/ft_algo_1.c
+ft_algo_1/ft_algo_1.c\
+ft_algo_3/ft_algo_3.c
+
 
 SRCS = $(addprefix srcs/, $(SRC))
 
