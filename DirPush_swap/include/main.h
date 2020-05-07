@@ -119,6 +119,7 @@ void			ft_print_tab(char **tab);
 void			ft_print_instruction(t_instructions *instructions,
 t_option option);
 void			ft_print_resultb(t_list *a, t_list *b, t_option option);
+void			ft_print_step(t_instructions *instructions);
 
 /*
 ** instruction

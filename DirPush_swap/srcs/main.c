@@ -19,5 +19,5 @@ int	main(int ac, char *av[])
 	}
 }
 /*
-** system("leaks a.out");
+** system("leaks push_swap");
 */

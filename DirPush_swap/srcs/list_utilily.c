@@ -23,6 +23,10 @@ int			ft_less_diff_b(t_list *a, t_list *b)
 	return (ft_less_diff(a, b->begin->val));
 }
 
+/*
+**	if the value of begin of list is the smaller number after val 
+*/
+
 int			ft_less_diff(t_list *list, int val)
 {
 	int diff;

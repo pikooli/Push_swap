@@ -15,9 +15,10 @@ int		ft_algo(t_list *a, t_option *option)
 	         ft_free_instructions(instruct);
 	         instruct = tmp;
 	}
-	ft_print_instruction(instruct, *option);
-	if (option->print)
-		ft_print_result(instruct, *option);
+	ft_print_step(instruct);
+	// ft_print_instruction(instruct, *option);
+	// if (option->print)
+		// ft_print_result(instruct, *option);
 	ft_free_instructions(instruct);
 	return (TRUE);
 }

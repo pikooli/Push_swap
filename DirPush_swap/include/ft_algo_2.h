@@ -3,10 +3,7 @@
 
 # include "main.h"
 
-/*
-** when everything in A is in reverse order
-*/
-
-# define REVA 1
+char    *ft_b(t_list *a, t_list *b, t_option *option);
+char    *ft_a(t_list *a, t_list *b, t_option *option);
 
 #endif
