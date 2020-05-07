@@ -28,9 +28,9 @@ OBJS = $(SRCS:.c=.o) $(ALGO:.c=.o)
 	@gcc $(CFLAGS) -o $@ -c $<
 
 all : $(OBJS)
-	gcc $(FLAG) $(OBJS) -o push_swap
+	@gcc $(FLAG) $(OBJS) -o push_swap
 
 clean: 
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 fclean: clean
-	rm -rf push_swap
+	@rm -rf push_swap

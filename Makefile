@@ -2,22 +2,25 @@
 
 
 all:
-	cd DirChecker; make; cp checker ..
-	cd DirPush_swap; make; cp push_swap ..
+	@cd DirChecker; make; cp checker ..
+	@cd DirPush_swap; make; cp push_swap ..
+	@echo "finish make all"
 clean: 
-	cd DirChecker; make clean
-	cd DirPush_swap; make clean
+	@cd DirChecker; make clean
+	@cd DirPush_swap; make clean
+	@echo "finish clean"
 
 fclean:
-	cd DirChecker; make fclean
-	cd DirPush_swap; make fclean
-	rm -rf checker
-	rm -rf push_swap
+	@cd DirChecker; make fclean
+	@cd DirPush_swap; make fclean
+	@rm -rf checker
+	@rm -rf push_swap
+	@echo "finish fclean"
 re:	
-	make fclean
-	make 
+	@make fclean
+	@make 
 test: 
-	make all
+	@make all
 	./push_swap -v 2 1 3 6 5 8
 	
 test1:

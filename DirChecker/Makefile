@@ -21,9 +21,9 @@ CFLAGS = $(FLAG) -I include
 	@gcc $(CFLAGS) -o $@ -c $<
 
 all : $(OBJS)
-	gcc $(FLAG) $(OBJS) -o checker
+	@gcc $(FLAG) $(OBJS) -o checker
 
 clean: 
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 fclean: clean
-	rm -rf Checker
+	@rm -rf Checker
