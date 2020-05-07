@@ -55,6 +55,8 @@ t_instructions	*ft_prepare_algo(t_list *a, t_option *option,
 char *(*algo)(t_list *, t_list *, t_option *));
 void			*ft_test_algo(t_instructions *instruct, t_option *option,
 char *(*algo)(t_list *, t_list *, t_option *));
+t_instructions *ft_best_algo(t_list *a, t_instructions *instruct, t_option
+ *option, char *(*algo)(t_list *, t_list *, t_option *));
 
 char			*ft_algo_1_1(t_list *a, t_list *b, t_option *option);
 char 			*ft_algo_1_2(t_list *a, t_list *b, t_option *option);
