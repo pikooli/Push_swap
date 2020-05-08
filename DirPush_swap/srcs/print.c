@@ -14,7 +14,7 @@ void		ft_print_list(t_maille *a, t_maille *b, t_option option)
 			ft_putnbr(a->val);
 			i = a->val >= 0 ? i : i -1;
 			i -= ft_length_numb(a->val);
-			ft_putstr("\e[1;0m");
+			option.val1 == a->val && option.color ? ft_putstr("\e[1;0m") : 0;
 		}
 		while (i-- > 0)
 			ft_putstr(" ");
@@ -22,7 +22,7 @@ void		ft_print_list(t_maille *a, t_maille *b, t_option option)
 		{
 			option.val1 == b->val && option.color ? ft_putstr("\e[1;31m") : 0;
 			ft_putnbr(b->val);
-			ft_putstr("\e[1;0m");
+			option.val1 == b->val && option.color ? ft_putstr("\e[1;0m") : 0;
 		}
 		ft_putstr("\n");
 		a = a ? a->next : NULL;
@@ -120,5 +120,15 @@ void		ft_print_instruction(t_instructions *instructions, t_option option)
 		!tmp->next && option.color ? ft_putstr("\e[1;0m") : 0;
 		ft_putstr("\n");
 		tmp = tmp->next;
+	}
+}
+
+void		ft_print_last_step(t_instructions *instruct)
+{
+	if (instruct->last)
+	{
+		ft_putstr("instruction = ");
+		ft_putstr(instruct->last->val);
+		ft_putstr("\n");
 	}
 }

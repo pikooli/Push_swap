@@ -64,17 +64,17 @@ int			ft_less_diff(t_list *list, int val)
 
 int			ft_closer_big(t_list *list, int val)
 {
-	int diff;
-	int tmpdiff;
+	long diff;
+	long tmpdiff;
 	t_maille *tmp;
 	
 	tmp = list->begin;
-	diff = tmp->val - val;
+	diff = (long)tmp->val - (long)val;
 	diff = diff > 0 ? diff : -diff;
 	tmp = tmp->next;
 	while (tmp)
 	{
-		tmpdiff = (tmp->val - val) > 0 ? (tmp->val - val) : -(tmp->val - val);
+		tmpdiff = ((long)tmp->val - (long)val) > 0 ? ((long)tmp->val - (long)val) : -((long)tmp->val - (long)val);
 		if ((tmpdiff - diff) < 0 && tmp->val > val)
 			return (FALSE);
 		tmp = tmp->next;
@@ -84,17 +84,17 @@ int			ft_closer_big(t_list *list, int val)
 
 int			ft_closer_small(t_list *list, int val)
 {
-	int diff;
-	int tmpdiff;
+	long diff;
+	long tmpdiff;
 	t_maille *tmp;
 	
 	tmp = list->begin;
-	diff = tmp->val - val;
+	diff = (long)tmp->val - (long)val;
 	diff = diff > 0 ? diff : -diff;
 	tmp = tmp->next;
 	while (tmp)
 	{
-		tmpdiff = (tmp->val - val) > 0 ? (tmp->val - val) : -(tmp->val - val);
+		tmpdiff = ((long)tmp->val - (long)val) > 0 ? ((long)tmp->val - (long)val) : -((long)tmp->val - (long)val);
 		if ((tmpdiff - diff) < 0 && tmp->val < val)
 			return (FALSE);
 		tmp = tmp->next;

@@ -14,7 +14,8 @@ char *ft_algo_1_3(t_list *a, t_list *b, t_option *option)
         return (rest); 
     if ((rest = ft_a_b_3(a, b, option)))
         return (rest);
-    return (ft_pb(a, b, option));
+    ft_putstr("----------end----------\n");
+    return (ft_rra(a, option));
 }
 
 char    *ft_only_a_3(t_list *a, t_list *b, t_option *option)
@@ -32,6 +33,7 @@ char    *ft_only_a_3(t_list *a, t_list *b, t_option *option)
 
         if (a->begin->val == ft_bigger_in_list(a))
             return (ft_ra(a, option));
+        
     }
     return (NULL);
 }
