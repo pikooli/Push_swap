@@ -7,14 +7,11 @@ int		ft_algo(t_list *a, t_option *option)
 
 	instruct = NULL;
 	(void)tmp;
-	if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_2)))
-		return (FALSE);
+	// if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_2)))
+	// 	return (FALSE);
 	if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_3)))
 		return (FALSE);
-	ft_print_step(instruct);
-	// ft_print_instruction(instruct, *option);
-	// if (option->print)
-	// 	ft_print_result(instruct, *option);
+	ft_print_instruction(instruct, *option);
 	ft_free_instructions(instruct);
 	return (TRUE);
 }

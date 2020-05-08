@@ -36,6 +36,8 @@ t_option *option, char *(*algo)(t_list *, t_list *, t_option *))
 	char			*choice;
 	t_instruction	*tmp;
 
+	if (option->print)
+		ft_print_result(instruct, *option);
 	if (ft_check_final(instruct->a, instruct->b))
 		return (NULL);
 	instruct->numb += 1;

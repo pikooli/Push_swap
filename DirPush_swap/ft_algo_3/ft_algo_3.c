@@ -2,8 +2,6 @@
 
 char *ft_algo_1_3(t_list *a, t_list *b, t_option *option)
 {
-    ft_print_resultb(a, b, *option);
-
     char *rest;
 
     if ((rest = ft_only_a_3(a, b, option)))
@@ -97,7 +95,7 @@ char    *ft_a_b_3(t_list *a, t_list *b, t_option *option)
         
         if (ft_closer_big(a, b->begin->val))
             return (ft_pa(a, b, option));
-            
+
         if (a->begin->next)
         {
             if (a->begin->next && a->begin->val > a->begin->next->val && ft_check_rev_list(b))
