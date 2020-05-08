@@ -92,6 +92,7 @@ t_maille		*ft_copy_list(t_maille *first)
 	{
 		if (!(tmp->next = ft_new_elem(first->val)))
 			return (ft_free_list(begin));
+		tmp->next->prev = tmp;
 		first = first->next;
 		tmp = tmp->next;
 	}

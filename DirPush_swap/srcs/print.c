@@ -95,7 +95,39 @@ void		ft_print_step(t_instructions *instructions)
 	ft_print_last_step(instructions);
 }
 
+void    ft_rev_print(t_list *a)
+{
+    t_maille *tmp;
 
+	tmp = a->begin;
+	ft_putstr("------rev print ----------- \n");
+    while (tmp->next)
+    {
+		    ft_putnbr(tmp->val);
+        	ft_putstr("\n");
+            tmp = tmp->next;
+    }
+	ft_putnbr(tmp->val);
+    ft_putstr("\n");
+	ft_putstr("------ start rev print ----------- \n");
+
+    while (tmp)
+    {
+        ft_putnbr(tmp->val);
+        ft_putstr("\n");
+        tmp = tmp->prev;
+    }
+}
+
+
+void		ft_print_2(t_maille *a, t_maille *b)
+{
+	ft_putstr("------ ");
+	ft_putnbr(a->val);
+	ft_putstr("------ ");
+	ft_putnbr(b->val);
+	ft_putstr("------\n");
+}
 
 void		ft_print_tab(char **tab)
 {

@@ -30,13 +30,17 @@ int		ft_instruction(t_list *a, t_list *b, t_option *option)
 char	*ft_sa(t_list *a, t_option *option)
 {
 	t_maille *tmp;
-
+	
 	if (a->numb > 1)
 	{
 		tmp = a->begin;
 		a->begin = a->begin->next;
 		tmp->next = a->begin->next;
 		a->begin->next = tmp;
+		a->begin->prev = NULL;
+		a->begin->next->prev = a->begin;
+		if (a->begin->next->next)
+			a->begin->next->next->prev = a->begin->next;
 		option->val1 = tmp->val;
 	}
 	if (a->numb == 2)
@@ -63,6 +67,10 @@ char	*ft_pa(t_list *a, t_list *b, t_option *option)
 	
 	if (b->numb == 0)
 		return ("pa");
+	if (a->begin)
+		a->begin->prev = b->begin;
+	if (b->begin && b->begin->next)
+		b->begin->next->prev = NULL;
 	option->val1 = b->begin->val;
 	tmp = b->begin;
 	b->begin = b->begin->next;
@@ -92,6 +100,8 @@ char	*ft_ra(t_list *a, t_option *option)
 
 	if (a->numb < 2)
 		return ("ra");
+	a->begin->prev = a->last;
+	a->begin->next->prev = NULL;
 	tmp = a->begin;
 	a->begin = a->begin->next;
 	tmp->next = NULL;
@@ -124,6 +134,8 @@ char	*ft_rra(t_list *a, t_option *option)
 
 	if (a->numb < 2)
 		return ("rra");
+	a->begin->prev = a->last;
+	a->last->prev = NULL;
 	tmp = a->begin;
 	while (tmp->next->next)
 		tmp = tmp->next;

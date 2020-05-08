@@ -143,6 +143,37 @@ int			ft_closer_small_maille(t_maille *begin, int val)
 	return (TRUE);
 }
 
+int			ft_search_position_from_top(t_maille *begin, int val)
+{
+	int i;
+
+	i = 0;
+	while (begin)
+	{
+		if (begin->val == val)
+			return (i);
+		begin = begin->next;
+		i++;
+	}
+	return (1000);
+}
+
+
+int 		ft_check_first_20(t_maille *begin)
+{
+	int i;
+
+	i = 0;
+	while (i < 20 && begin->next)
+	{
+		if (begin->val > begin->next->val)
+			return (FALSE);
+		begin = begin->next;
+		i++;
+	}
+	return (TRUE);
+}
+
 int 		ft_list_ordoned(t_list *list)
 {
 	t_maille *next;

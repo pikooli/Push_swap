@@ -139,6 +139,8 @@ t_option option);
 void			ft_print_resultb(t_list *a, t_list *b, t_option option);
 void			ft_print_step(t_instructions *instructions);
 void			ft_print_last_step(t_instructions *instruct);
+void   			ft_rev_print(t_list *a);
+void			ft_print_2(t_maille *a, t_maille *b);
 
 /*
 ** instruction
@@ -182,6 +184,8 @@ int				ft_closer_small(t_list *list, int val);
 int				ft_is_bigger(t_list *list, int val);
 int				ft_closer_big_maille(t_maille *begin, int val);
 int				ft_closer_small_maille(t_maille *begin, int val);
+int				ft_search_position_from_top(t_maille *begin, int val);
+int 			ft_check_first_20(t_maille *begin);
 
 
 /*
