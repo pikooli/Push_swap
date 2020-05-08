@@ -10,7 +10,6 @@
 # define NOTHING 0
 # define HUNDRED 1
 # define FIVEHUNDRED 2
-# define BEGIN 1
 
 typedef struct	s_maille
 {
@@ -186,6 +185,7 @@ int				ft_closer_big_maille(t_maille *begin, int val);
 int				ft_closer_small_maille(t_maille *begin, int val);
 int				ft_search_position_from_top(t_maille *begin, int val);
 int 			ft_check_first_20(t_maille *begin);
+int 			ft_r_or_rr(t_list *list, int val);
 
 
 /*

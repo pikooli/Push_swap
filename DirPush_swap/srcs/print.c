@@ -12,7 +12,7 @@ void		ft_print_list(t_maille *a, t_maille *b, t_option option)
 		{
 			option.val1 == a->val && option.color ? ft_putstr("\e[1;92m") : 0;
 			ft_putnbr(a->val);
-			i = a->val >= 0 ? i : i -1;
+			i = a->val > 0 ? i : i -1;
 			i -= ft_length_numb(a->val);
 			option.val1 == a->val && option.color ? ft_putstr("\e[1;0m") : 0;
 		}

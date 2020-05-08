@@ -143,6 +143,7 @@ int			ft_closer_small_maille(t_maille *begin, int val)
 	return (TRUE);
 }
 
+
 int			ft_search_position_from_top(t_maille *begin, int val)
 {
 	int i;
@@ -164,9 +165,9 @@ int 		ft_check_first_20(t_maille *begin)
 	int i;
 
 	i = 0;
-	while (i < 20 && begin->next)
+	while (i < 19 && begin->next)
 	{
-		if (begin->val > begin->next->val)
+		if (begin->val + 1 != begin->next->val)
 			return (FALSE);
 		begin = begin->next;
 		i++;

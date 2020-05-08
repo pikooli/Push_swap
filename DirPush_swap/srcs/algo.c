@@ -7,13 +7,13 @@ int		ft_algo(t_list *a, t_option *option)
 	instruct = NULL;
 	// if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_2)))
 	// 	return (FALSE);
-	if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_3)))
-		return (FALSE);
+	// if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_3)))
+	// 	return (FALSE);
 	// if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_4)))
 	// 	return (FALSE);
-	// if (option->modeinput == HUNDRED)
-	// 	if (!(instruct = ft_algo_suivie(a, instruct, option, &ft_algo_one_hundred)))
-	//  		return (FALSE);
+	if (option->modeinput == HUNDRED)
+		if (!(instruct = ft_algo_suivie(a, instruct, option, &ft_algo_one_hundred)))
+	 		return (FALSE);
 	ft_print_step(instruct);
 	// ft_print_instruction(instruct, *option);
 	ft_free_instructions(instruct);
@@ -48,7 +48,7 @@ t_instructions *ft_algo_suivie(t_list *a, t_instructions *instruct, t_option *op
 {
 	t_instructions *tmp;
 
-	option->modetri = BEGIN;
+	option->modetri = NOTHING;
 	if (!(tmp = ft_prepare_algo(a, option, (*algo))))
 	{
 		ft_free_instructions(instruct);
