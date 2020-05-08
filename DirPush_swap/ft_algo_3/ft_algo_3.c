@@ -14,7 +14,7 @@ char *ft_algo_1_3(t_list *a, t_list *b, t_option *option)
         return (rest); 
     if ((rest = ft_a_b_3(a, b, option)))
         return (rest);
-    ft_putstr("----------end----------\n");
+    // ft_putstr("----------end----------\n");
     return (ft_rra(a, option));
 }
 
