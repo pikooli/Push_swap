@@ -59,3 +59,4 @@ t_option *option, char *(*algo)(t_list *, t_list *, t_option *))
 	ft_test_algo(instruct, option, (*algo));
 	return (NULL);
 }
+

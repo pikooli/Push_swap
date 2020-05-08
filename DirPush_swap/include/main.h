@@ -7,6 +7,10 @@
 
 # define TRUE 1
 # define FALSE 0
+# define NOTHING 0
+# define HUNDRED 1
+# define FIVEHUNDRED 2
+# define BEGIN 1
 
 typedef struct	s_maille
 {
@@ -29,6 +33,7 @@ typedef struct	s_option
 	int val1;
 	int color;
 	int print;
+	int modeinput;
 	int modetri;
 }				t_option;
 
@@ -59,11 +64,18 @@ void			*ft_test_algo(t_instructions *instruct, t_option *option,
 char *(*algo)(t_list *, t_list *, t_option *));
 t_instructions *ft_best_algo(t_list *a, t_instructions *instruct, t_option
  *option, char *(*algo)(t_list *, t_list *, t_option *));
+t_instructions *ft_algo_suivie(t_list *a, t_instructions *instruct, t_option *option, char *(*algo)(t_list *, t_list *, t_option *));
+
+
+
+
 
 char			*ft_algo_1_1(t_list *a, t_list *b, t_option *option);
 char 			*ft_algo_1_2(t_list *a, t_list *b, t_option *option);
 char 			*ft_algo_1_3(t_list *a, t_list *b, t_option *option);
 char			*ft_algo_1_4(t_list *a, t_list *b, t_option *option);
+char 			*ft_algo_1_5(t_list *a, t_list *b, t_option *option);
+char 			*ft_algo_one_hundred(t_list *a, t_list *b, t_option *option);
 
 /*
 ** principal function
@@ -173,8 +185,15 @@ int				ft_closer_small_maille(t_maille *begin, int val);
 
 
 /*
-**split
+** split
 */
 char			**ft_split(char *str, char cara);
+
+/*
+**	entry mode	
+*/
+int     		ft_find_plusone(t_list *a, int val);
+void    		ft_check_mode(t_list *a, t_option *option);
+
 
 #endif

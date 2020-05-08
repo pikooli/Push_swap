@@ -11,12 +11,17 @@ check.c\
 main.c\
 one_argument.c\
 split.c\
-list_utilily.c
+list_utilily.c\
+ft_entry_mode.c
 
-ALGO = ft_algo_2/ft_algo_2.c\
-ft_algo_1/ft_algo_1.c\
+ALGO = ft_algo_1/ft_algo_1.c\
+ft_algo_2/ft_algo_2.c\
 ft_algo_3/ft_algo_3.c\
-ft_algo_4/ft_algo_4.c
+ft_algo_4/ft_algo_4.c\
+ft_algo_5/ft_algo_5.c\
+ft_algo_one_hundred/ft_algo_one_hundred.c
+
+
 
 
 
