@@ -18,6 +18,33 @@ typedef struct	s_maille
 	struct s_maille *next;
 }				t_maille;
 
+typedef struct s_tranch
+{
+    int tranch1;
+	int tranch1finish;
+    int tranch2;
+	int tranch2finish;
+    int tranch3;
+	int tranch3finish;
+    int tranch4;
+	int tranch4finish;
+    int tranch5;
+	int tranch5finish;
+    int tranch6;
+	int tranch6finish;
+    int tranch7;
+	int tranch7finish;
+    int tranch8;
+	int tranch8finish;
+    int tranch9;
+	int tranch9finish;
+    int tranch10;
+	int tranch10finish;
+    int tranch11;
+	int tranch11finish;
+    int mode;
+}               t_tranch;
+
 typedef struct	s_list
 {
 	t_maille	*begin;
@@ -25,7 +52,10 @@ typedef struct	s_list
 	int			numb;
 	int			big;
 	int			small;
+	t_tranch	tranch;
 }				t_list;
+
+
 
 typedef struct	s_option
 {
@@ -140,6 +170,7 @@ void			ft_print_step(t_instructions *instructions);
 void			ft_print_last_step(t_instructions *instruct);
 void   			ft_rev_print(t_list *a);
 void			ft_print_2(t_maille *a, t_maille *b);
+void			ft_print_tranch(t_list *a);
 
 /*
 ** instruction
@@ -186,6 +217,8 @@ int				ft_closer_small_maille(t_maille *begin, int val);
 int				ft_search_position_from_top(t_maille *begin, int val);
 int 			ft_check_first_20(t_maille *begin);
 int 			ft_r_or_rr(t_list *list, int val);
+void			ft_prepare_tranch_hundred(t_list *a);
+void			ft_prepare_tranch_five_hundred(t_list *a);
 
 
 /*

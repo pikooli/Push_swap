@@ -14,8 +14,9 @@ void	ft_principal_push_swap(int num, char **av, t_option *option)
 	}
 	a->last = ft_last_list(a);
 	a->numb = num;
+	a->big = ft_bigger_in_list(a);
+	a->small = ft_smaller_in_list(a);
 	ft_check_mode(a, option);
-	// printf("mode = %d\n", option->modeinput);
 	if (!ft_algo(a, option))
 		ft_print_error();
 	ft_free_list(a->begin);
