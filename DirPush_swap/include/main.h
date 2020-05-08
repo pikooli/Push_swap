@@ -161,6 +161,7 @@ int 			ft_list_ordoned(t_list *list);
 int				ft_less_diff(t_list *list, int val);
 int				ft_less_diff_b(t_list *a, t_list *b);
 int				ft_closer_big(t_list *list, int val);
+int				ft_closer_small(t_list *list, int val);
 
 /*
 **split

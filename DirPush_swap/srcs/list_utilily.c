@@ -16,6 +16,23 @@ int         ft_bigger_in_list(t_list *list)
 	return val;
 }
 
+int			ft_smaller_in_list(t_list *list)
+{
+	int val;
+	t_maille *tmp;
+
+	val = list->begin->val;
+	tmp = list->begin->next;
+	while (tmp)
+	{
+		if (val > tmp->val)
+			val = tmp->val;
+		tmp = tmp->next;
+	}
+	return (val);
+}
+
+
 int			ft_less_diff_b(t_list *a, t_list *b)
 {
 	if (!b->begin)
@@ -58,7 +75,27 @@ int			ft_closer_big(t_list *list, int val)
 	while (tmp)
 	{
 		tmpdiff = (tmp->val - val) > 0 ? (tmp->val - val) : -(tmp->val - val);
-		if ((diff - tmpdiff) < 0 && tmp->val > val)
+		if ((tmpdiff - diff) < 0 && tmp->val > val)
+			return (FALSE);
+		tmp = tmp->next;
+	}
+	return (TRUE);
+}
+
+int			ft_closer_small(t_list *list, int val)
+{
+	int diff;
+	int tmpdiff;
+	t_maille *tmp;
+	
+	tmp = list->begin;
+	diff = tmp->val - val;
+	diff = diff > 0 ? diff : -diff;
+	tmp = tmp->next;
+	while (tmp)
+	{
+		tmpdiff = (tmp->val - val) > 0 ? (tmp->val - val) : -(tmp->val - val);
+		if ((tmpdiff - diff) < 0 && tmp->val < val)
 			return (FALSE);
 		tmp = tmp->next;
 	}
@@ -86,21 +123,6 @@ int 		ft_list_ordoned(t_list *list)
 	return (TRUE);
 }
 
-int			ft_smaller_in_list(t_list *list)
-{
-	int val;
-	t_maille *tmp;
-
-	val = list->begin->val;
-	tmp = list->begin->next;
-	while (tmp)
-	{
-		if (val > tmp->val)
-			val = tmp->val;
-		tmp = tmp->next;
-	}
-	return (val);
-}
 
 int         ft_check_list(t_list *list)
 {
