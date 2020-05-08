@@ -187,3 +187,17 @@ t_maille    *ft_last_list(t_list *list)
     }
     return (tmp);
 }
+
+int			ft_is_bigger(t_list *list, int val)
+{
+	t_maille *current;
+
+	current = list->begin;
+	while (current)
+	{
+		if (current->val > val)
+			return (FALSE);
+		current = current->next;
+	}
+	return (TRUE);
+}

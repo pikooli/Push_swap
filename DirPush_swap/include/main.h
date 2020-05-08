@@ -20,6 +20,8 @@ typedef struct	s_list
 	t_maille	*begin;
 	t_maille	*last;
 	int			numb;
+	int			big;
+	int			small;
 }				t_list;
 
 typedef struct	s_option
@@ -155,6 +157,7 @@ int				ft_bigger_in_list(t_list *list);
 /*
 **	list function
 */
+
 t_maille		*ft_last_list(t_list *list);
 int				ft_smaller_in_list(t_list *list);
 int 			ft_list_ordoned(t_list *list);
@@ -162,6 +165,7 @@ int				ft_less_diff(t_list *list, int val);
 int				ft_less_diff_b(t_list *a, t_list *b);
 int				ft_closer_big(t_list *list, int val);
 int				ft_closer_small(t_list *list, int val);
+int				ft_is_bigger(t_list *list, int val);
 
 /*
 **split
