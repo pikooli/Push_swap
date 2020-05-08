@@ -25,7 +25,11 @@ char    *ft_only_a_4(t_list *a, t_list *b, t_option *option)
         if (a->begin->val == ft_smaller_in_list(a))
             return (ft_pb(a, b, option));
 
-        if (a->begin->next && a->begin->val > a->begin->next->val)
+        if (a->begin->next && a->begin->next->next && a->begin->val > a->begin->next->val &&
+         a->begin->next->val > a->begin->next->next->val)
+            return (ft_sa(a, option));
+
+        if (a->begin->next && !a->begin->next->next && a->begin->val > a->begin->next->val)
             return (ft_sa(a, option));
 
         if (a->begin->val > a->last->val) 
@@ -43,9 +47,12 @@ char    *ft_a_4(t_list *a, t_list *b, t_option *option)
     (void)option;
     if (a->begin && b->begin)
     {   
-        if (a->begin->next && a->begin->val > a->begin->next->val)
+        if (a->begin->next && a->begin->next->next && a->begin->val > a->begin->next->val &&
+         a->begin->next->val > a->begin->next->next->val)
             return (ft_sa(a, option));
 
+        if (a->begin->next && !a->begin->next->next && a->begin->val > a->begin->next->val)
+            return (ft_sa(a, option));
     }
     return (NULL);
 }
@@ -92,11 +99,8 @@ char    *ft_a_b_4(t_list *a, t_list *b, t_option *option)
 {
     if (a->begin && b->begin)
     {        
-        if (ft_check_rev_list(b) && ft_check_list(a) &&
-            b->begin->val < a->begin->val)
-            return (ft_pa(a, b, option));
         
-        if (ft_closer_big(a, b->begin->val) && ft_check_list(a))
+        if (ft_closer_small(a, b->begin->val) && ft_check_list(a))
             return (ft_pa(a, b, option));
 
         if (a->begin->next)

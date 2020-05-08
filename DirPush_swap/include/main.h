@@ -168,6 +168,9 @@ int				ft_less_diff_b(t_list *a, t_list *b);
 int				ft_closer_big(t_list *list, int val);
 int				ft_closer_small(t_list *list, int val);
 int				ft_is_bigger(t_list *list, int val);
+int				ft_closer_big_maille(t_maille *begin, int val);
+int				ft_closer_small_maille(t_maille *begin, int val);
+
 
 /*
 **split

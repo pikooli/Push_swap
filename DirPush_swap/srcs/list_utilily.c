@@ -102,6 +102,47 @@ int			ft_closer_small(t_list *list, int val)
 	return (TRUE);
 }
 
+int			ft_closer_big_maille(t_maille *begin, int val)
+{
+	long diff;
+	long tmpdiff;
+	t_maille *tmp;
+	
+	tmp = begin;
+	diff = (long)tmp->val - (long)val;
+	diff = diff > 0 ? diff : -diff;
+	tmp = tmp->next;
+	while (tmp)
+	{
+		tmpdiff = ((long)tmp->val - (long)val) > 0 ? ((long)tmp->val - (long)val) : -((long)tmp->val - (long)val);
+		if ((tmpdiff - diff) < 0 && tmp->val > val)
+			return (FALSE);
+		tmp = tmp->next;
+	}
+	return (TRUE);
+}
+
+
+int			ft_closer_small_maille(t_maille *begin, int val)
+{
+	long diff;
+	long tmpdiff;
+	t_maille *tmp;
+	
+	tmp = begin;
+	diff = (long)tmp->val - (long)val;
+	diff = diff > 0 ? diff : -diff;
+	tmp = tmp->next;
+	while (tmp)
+	{
+		tmpdiff = ((long)tmp->val - (long)val) > 0 ? ((long)tmp->val - (long)val) : -((long)tmp->val - (long)val);
+		if ((tmpdiff - diff) < 0 && tmp->val < val)
+			return (FALSE);
+		tmp = tmp->next;
+	}
+	return (TRUE);
+}
+
 int 		ft_list_ordoned(t_list *list)
 {
 	t_maille *next;
