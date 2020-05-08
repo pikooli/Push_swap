@@ -9,7 +9,9 @@ int		ft_algo(t_list *a, t_option *option)
 	(void)tmp;
 	// if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_2)))
 	// 	return (FALSE);
-	if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_3)))
+	// if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_3)))
+	// 	return (FALSE);
+	if (!(instruct = ft_best_algo(a, instruct, option, &ft_algo_1_4)))
 		return (FALSE);
 	ft_print_step(instruct);
 	// ft_print_instruction(instruct, *option);

@@ -1,23 +1,24 @@
-#include "ft_algo_3.h"
+#include "ft_algo_4.h"
 
-char *ft_algo_1_3(t_list *a, t_list *b, t_option *option)
+char *ft_algo_1_4(t_list *a, t_list *b, t_option *option)
 {
     char *rest;
 
-    if ((rest = ft_only_a_3(a, b, option)))
+    if ((rest = ft_only_a_4(a, b, option)))
         return (rest);
-    if ((rest = ft_only_b_3(a, b, option)))
+    if ((rest = ft_only_b_4(a, b, option)))
         return (rest); 
-    if ((rest = ft_a_3(a, b, option)))
+    if ((rest = ft_a_4(a, b, option)))
         return (rest);
-    if ((rest = ft_b_3(a, b, option)))
+    if ((rest = ft_b_4(a, b, option)))
         return (rest); 
-    if ((rest = ft_a_b_3(a, b, option)))
+    if ((rest = ft_a_b_4(a, b, option)))
         return (rest);
+    // ft_putstr("----------end----------\n");
     return (ft_rra(a, option));
 }
 
-char    *ft_only_a_3(t_list *a, t_list *b, t_option *option)
+char    *ft_only_a_4(t_list *a, t_list *b, t_option *option)
 {
     if (a->begin && !b->begin)
     {
@@ -37,7 +38,7 @@ char    *ft_only_a_3(t_list *a, t_list *b, t_option *option)
     return (NULL);
 }
 
-char    *ft_a_3(t_list *a, t_list *b, t_option *option)
+char    *ft_a_4(t_list *a, t_list *b, t_option *option)
 {
     (void)option;
     if (a->begin && b->begin)
@@ -49,7 +50,7 @@ char    *ft_a_3(t_list *a, t_list *b, t_option *option)
     return (NULL);
 }
 
-char    *ft_only_b_3(t_list *a, t_list *b, t_option *option)
+char    *ft_only_b_4(t_list *a, t_list *b, t_option *option)
 {
     if (b->begin && !a->begin)
     {   
@@ -71,7 +72,7 @@ char    *ft_only_b_3(t_list *a, t_list *b, t_option *option)
     return (NULL);
 }
 
-char    *ft_b_3(t_list *a, t_list *b, t_option *option)
+char    *ft_b_4(t_list *a, t_list *b, t_option *option)
 {
     if (a->begin && b->begin)
     {
@@ -87,7 +88,7 @@ char    *ft_b_3(t_list *a, t_list *b, t_option *option)
     }
     return (NULL);
 }
-char    *ft_a_b_3(t_list *a, t_list *b, t_option *option)
+char    *ft_a_b_4(t_list *a, t_list *b, t_option *option)
 {
     if (a->begin && b->begin)
     {        
