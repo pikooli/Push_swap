@@ -10,7 +10,7 @@ void		ft_print_list(t_maille *a, t_maille *b, t_option option)
 		i = 14;
 		if (a)
 		{
-			option.val1 == a->val && option.color ? ft_putstr("\e[1;31m") : 0;
+			option.val1 == a->val && option.color ? ft_putstr("\e[1;92m") : 0;
 			ft_putnbr(a->val);
 			i = a->val >= 0 ? i : i -1;
 			i -= ft_length_numb(a->val);
@@ -20,7 +20,7 @@ void		ft_print_list(t_maille *a, t_maille *b, t_option option)
 			ft_putstr(" ");
 		if (b)
 		{
-			option.val1 == b->val && option.color ? ft_putstr("\e[1;31m") : 0;
+			option.val1 == b->val && option.color ? ft_putstr("\e[1;92m") : 0;
 			ft_putnbr(b->val);
 			option.val1 == b->val && option.color ? ft_putstr("\e[1;0m") : 0;
 		}
@@ -92,6 +92,7 @@ void		ft_print_step(t_instructions *instructions)
 	ft_putstr("number of step : ");
 	ft_putnbr(instructions->numb);
 	ft_putstr("\n");
+	ft_print_last_step(instructions);
 }
 
 
@@ -115,7 +116,7 @@ void		ft_print_instruction(t_instructions *instructions, t_option option)
 	tmp = instructions->first;
 	while (tmp)
 	{
-		!tmp->next && option.color ? ft_putstr("\e[1;31m") : 0;
+		!tmp->next && option.color ? ft_putstr("\e[1;92m") : 0;
 		ft_putstr(tmp->val);
 		!tmp->next && option.color ? ft_putstr("\e[1;0m") : 0;
 		ft_putstr("\n");
@@ -127,8 +128,10 @@ void		ft_print_last_step(t_instructions *instruct)
 {
 	if (instruct->last)
 	{
+		ft_putstr("\e[1;32m");
 		ft_putstr("instruction = ");
 		ft_putstr(instruct->last->val);
+		ft_putstr("\e[1;0m"); 
 		ft_putstr("\n");
 	}
 }

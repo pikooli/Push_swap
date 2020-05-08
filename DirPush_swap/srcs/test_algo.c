@@ -40,7 +40,6 @@ t_option *option, char *(*algo)(t_list *, t_list *, t_option *))
 
 	if (option->print)
 		ft_print_result(instruct, *option);
-	ft_print_last_step(instruct);
 	if (ft_check_final(instruct->a, instruct->b))
 		return (NULL);
 	instruct->numb += 1;
