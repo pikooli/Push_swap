@@ -93,7 +93,7 @@ char    *ft_a_b_3(t_list *a, t_list *b, t_option *option)
             b->begin->val < a->begin->val)
             return (ft_pa(a, b, option));
         
-        if (ft_closer_big(a, b->begin->val))
+        if (ft_closer_big(a, b->begin->val) && ft_check_list(a))
             return (ft_pa(a, b, option));
 
         if (a->begin->next)
@@ -105,6 +105,9 @@ char    *ft_a_b_3(t_list *a, t_list *b, t_option *option)
                  a->begin->next->val < a->begin->val)
                 return (ft_pb(a, b, option));
         }
+        if (a->begin->val == ft_smaller_in_list(a) && ft_closer_big(a, b->begin->val))
+            return (ft_pb(a, b, option));
+            
         if (a->begin->val > a->last->val && b->begin->val < b->last->val) 
             return (ft_rrr(a, b, option));
 
