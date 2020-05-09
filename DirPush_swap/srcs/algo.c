@@ -79,42 +79,42 @@ void	ft_prepare_tranch_hundred(t_list *a)
 	int diff;
 
 	diff = (a->numb / 5);
-	a->tranch.tranch1 = a->small;
+	a->tranch.tranch1 = a->small + diff;
 	a->tranch.tranch1finish = FALSE;
-	a->tranch.tranch2 = a->small + diff;
+	a->tranch.tranch2 = a->small + diff * 2;
 	a->tranch.tranch2finish = FALSE;
-	a->tranch.tranch3 = a->small + diff * 2;
+	a->tranch.tranch3 = a->small + diff * 3;
 	a->tranch.tranch3finish = FALSE;
-	a->tranch.tranch4 = a->small + diff * 3;
+	a->tranch.tranch4 = a->small + diff * 4;
 	a->tranch.tranch4finish = FALSE;
-	a->tranch.tranch5 = a->small + diff * 4;
+	a->tranch.tranch5 = a->small + diff * 5;
 	a->tranch.tranch5finish = FALSE;
 	a->tranch.mode = NOTHING;
 }
 
 void	ft_prepare_tranch_five_hundred(t_list *a)
 {
-	a->tranch.tranch1 = a->small;
+	a->tranch.tranch1 = a->small + (a->numb / 11);
 	a->tranch.tranch1finish = FALSE;
-	a->tranch.tranch2 = a->small + (a->numb / 11);
+	a->tranch.tranch2 = a->small + (a->numb / 11) * 2;
 	a->tranch.tranch2finish = FALSE;
-	a->tranch.tranch3 = a->small + (a->numb / 11) * 2;
+	a->tranch.tranch3 = a->small + (a->numb / 11) * 3;
 	a->tranch.tranch3finish = FALSE;
-	a->tranch.tranch4 = a->small + (a->numb / 11) * 3;
+	a->tranch.tranch4 = a->small + (a->numb / 11) * 4;
 	a->tranch.tranch4finish = FALSE;
-	a->tranch.tranch5 = a->small + (a->numb / 11) * 4;
+	a->tranch.tranch5 = a->small + (a->numb / 11) * 5;
 	a->tranch.tranch5finish = FALSE;
-	a->tranch.tranch6 = a->small + (a->numb / 11) * 5;
+	a->tranch.tranch6 = a->small + (a->numb / 11) * 6;
 	a->tranch.tranch6finish = FALSE;
-	a->tranch.tranch7 = a->small + (a->numb / 11) * 6;
+	a->tranch.tranch7 = a->small + (a->numb / 11) * 7;
 	a->tranch.tranch7finish = FALSE;
-	a->tranch.tranch8 = a->small + (a->numb / 11) * 7;
+	a->tranch.tranch8 = a->small + (a->numb / 11) * 8;
 	a->tranch.tranch8finish = FALSE;
-	a->tranch.tranch9 = a->small + (a->numb / 11) * 8;
+	a->tranch.tranch9 = a->small + (a->numb / 11) * 9;
 	a->tranch.tranch9finish = FALSE;
-	a->tranch.tranch10 = a->small + (a->numb / 11) * 9;
+	a->tranch.tranch10 = a->small + (a->numb / 11) * 10;
 	a->tranch.tranch10finish = FALSE;
-	a->tranch.tranch11 = a->small + (a->numb / 11) * 10;
+	a->tranch.tranch11 = a->small + (a->numb / 11) * 11;
 	a->tranch.tranch11finish = FALSE;
 	a->tranch.mode = NOTHING;
 }

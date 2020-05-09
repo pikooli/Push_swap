@@ -274,3 +274,4 @@ int			ft_is_bigger(t_list *list, int val)
 	}
 	return (TRUE);
 }
+

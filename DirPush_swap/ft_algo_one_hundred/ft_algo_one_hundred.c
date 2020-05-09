@@ -4,69 +4,86 @@ char    *ft_algo_one_hundred(t_list *a, t_list *b, t_option *option)
 {
     char *ret;
 
-    if ((ret = ft_search_next(a, b, option)))
+    ft_first_tranch(a);
+    ft_print_finish_tranch(a);
+
+    if ((ret = ft_final(a, b, option)))
         return (ret);
-    if ((ret = ft_annex_b(a, b, option)))
-        return (ret);
+
+    // if ((ret = ft_push_a_20(a, b, option)))
+    //     return ((ret));
+    
     if ((ret = ft_push_b_20(a, b, option)))
         return (ret);
-    if ((ret = ft_trie_20(a, b, option)))
+
+    if ((ret = ft_search_next(a, b, option)))
         return (ret);
-    if ((ret = ft_push_a_20(a, b, option)))
-        return ((ret));
+
+    if ((ret = ft_annex_b(a, b, option)))
+        return (ret);
+
     return (ft_rra(a, option));
+}
+
+char    *ft_final(t_list *a, t_list *b, t_option *option)
+{
+    (void)b;
+    if (a->tranch.tranch1finish && a->tranch.tranch2finish &&
+     a->tranch.tranch3finish && a->tranch.tranch4finish
+     && a->tranch.tranch5finish)
+        return(ft_ra(a , option));
+    return (NULL);
 }
 
 char    *ft_search_next(t_list *a, t_list *b, t_option *option)
 {   
     char *ret;
 
-    if (b->numb < 20 && b->numb && option->modetri == NOTHING)
-    {
-            if ((ret = ft_rotate(a, option, ft_next_smaller_tranch(a, b))))
+    if (b->numb < 20 && option->modetri == NOTHING)
+            if ((ret = ft_rotate(a, option, ft_next_bigger_tranch(a, b))))
                 return (ret);
-    }
+    if (option->modetri == PUSH_A && b->begin->val != a->big)
+        if ((ret = ft_rotate(a, option, b->begin->val - 1)))
+                return (ret);
     return (NULL);
 }
 
 char    *ft_push_b_20(t_list *a, t_list *b, t_option *option)
 {
-    if (!ft_check_first_20(a->begin) && option->modetri == NOTHING)
+    if (!ft_finish_tranch(a) && option->modetri == NOTHING)
     {
-        if (!b->begin ||
-        (a->begin->val == ft_next_smaller_tranch(a, b)))
-        {
-            ft_is_tranch(a, a->begin->val);
+        if (a->begin->val == ft_next_bigger_tranch(a, b))
             return (ft_pb(a, b, option));
-        }
     }
     return (NULL);
 }
 
 char    *ft_push_a_20(t_list *a, t_list *b, t_option *option)
 {
-    if (option->modetri == PUSH_A && b->numb)
+    if (option->modetri == PUSH_A)
     {
-        if (ft_closer_big(a, b->begin->val))
+        if (ft_closer_big(a, b->begin->val) || b->begin->val == a->small)
         {
             if (b->numb == 1)
-                    option->modetri = NOTHING;
+            {
+                option->modetri = NOTHING;
+                ft_tranch_finish(a);
+            }
             return (ft_pa(a, b, option));
         }
     }
-    
     return (NULL);
 }
 char    *ft_annex_b(t_list *a, t_list *b, t_option *option)
 {
     if (a && b->begin && option && b->begin->next)
-        if (b->begin->val < b->begin->next->val)
+        if (b->begin->val > b->begin->next->val)
             return (ft_sb(b, option));
 
-    if (ft_check_rev_list(b) && b->numb == 20)
+    if (b->numb >= 20 && option->modetri == NOTHING)
     {
+            ft_printf("push_a ", a->tranch.mode);
             option->modetri = PUSH_A;
-            ft_tranch_finish(a, a->tranch.mode);
     }
     return (NULL);
 }
