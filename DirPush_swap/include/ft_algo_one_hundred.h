@@ -11,8 +11,6 @@
 # define TRANCH5 5
 
 
-
-char    *ft_trie_20(t_list *a, t_list *b, t_option *option);
 char    *ft_push_b_20(t_list *a, t_list *b, t_option *option);
 char    *ft_push_a_20(t_list *a, t_list *b, t_option *option);
 char    *ft_annex_b(t_list *a, t_list *b, t_option *option);
@@ -28,6 +26,7 @@ void	ft_first_tranch(t_list *a);
 int     ft_next_bigger_tranch(t_list *a, t_list *b);
 void    ft_print_finish_tranch(t_list *a);
 char    *ft_final(t_list *a, t_list *b, t_option *option);
+void        ft_help_tranch(t_list *a, t_list *b, t_option *option);
 
 
 #endif

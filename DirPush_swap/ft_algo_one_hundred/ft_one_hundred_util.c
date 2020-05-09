@@ -2,6 +2,23 @@
 #include "ft_algo_one_hundred.h"
 
 
+char    *ft_rotate(t_list *list, t_option *option, int val)
+{   
+    int ret;
+
+    if (val == 1000)
+        return (NULL);
+    if (list->begin->val == val)
+        return (NULL);
+    ret = ft_r_or_rr(list, val);
+    if (ret < 0)
+        return (ft_rra(list, option));
+    else if (ret > 0)
+        return (ft_ra(list, option));
+    return (NULL);
+}
+
+
 int 		ft_r_or_rr(t_list *list, int val)
 {
 	int ret;
@@ -14,42 +31,6 @@ int 		ft_r_or_rr(t_list *list, int val)
         return (1);
 	return ((list->numb / 2) - ret);
 }
-
-int         ft_finish_tranch(t_list *a)
-{
-    if (a->begin->val < a->tranch.tranch1)
-        return (a->tranch.tranch1finish);
-    if (a->begin->val < a->tranch.tranch2)
-        return (a->tranch.tranch2finish);
-    if (a->begin->val < a->tranch.tranch3)
-        return (a->tranch.tranch3finish);
-    if (a->begin->val < a->tranch.tranch4)
-        return (a->tranch.tranch4finish);
-    if (a->begin->val < a->tranch.tranch5)
-        return (a->tranch.tranch5finish);
-    return (0);
-}
-
-void        ft_is_tranch(t_list *a, int val)
-{
-    a->tranch.mode = (val < a->tranch.tranch1) ? TRANCH1 : a->tranch.mode; 
-    a->tranch.mode = (val >= a->tranch.tranch1 && val < a->tranch.tranch2) ? TRANCH2 : a->tranch.mode; 
-    a->tranch.mode = (val >= a->tranch.tranch2 && val < a->tranch.tranch3) ? TRANCH3 : a->tranch.mode; 
-    a->tranch.mode = (val >= a->tranch.tranch3 && val < a->tranch.tranch4) ? TRANCH4 : a->tranch.mode; 
-    a->tranch.mode = (val >= a->tranch.tranch4) ? TRANCH5 : a->tranch.mode; 
-}
-
-// make the tranch finish
-void        ft_tranch_finish(t_list *a)
-{
-    a->tranch.tranch1finish = (a->tranch.mode == TRANCH1) ? TRUE :  a->tranch.tranch1finish; 
-    a->tranch.tranch2finish = (a->tranch.mode == TRANCH2) ? TRUE :  a->tranch.tranch2finish;
-    a->tranch.tranch3finish = (a->tranch.mode == TRANCH3) ? TRUE :  a->tranch.tranch3finish;
-    a->tranch.tranch4finish = (a->tranch.mode == TRANCH4) ? TRUE :  a->tranch.tranch4finish;
-    a->tranch.tranch5finish = (a->tranch.mode == TRANCH5) ? TRUE :  a->tranch.tranch5finish;
-    a->tranch.mode = NOTHING;
-}
-
 
 void        ft_print_tranch_step(t_list *a)
 {
@@ -75,20 +56,50 @@ void	ft_print_tranch(t_list *a)
 	ft_putstr("\n");
 }
 
-char    *ft_rotate(t_list *list, t_option *option, int val)
-{   
-    int ret;
+void        ft_help_tranch(t_list *a, t_list *b, t_option *option)
+{
+    ft_print_tranch(a);
+    ft_print_finish_tranch(a);
+    ft_printf("search next = ",ft_next_bigger_tranch(a, b));
+    ft_printf("tranch on", a->tranch.mode);
+    ft_printf("option mode : ", option->modetri);
+}
 
-    if (val == 1000)
-        return (NULL);
-    if (list->begin->val == val)
-        return (NULL);
-    ret = ft_r_or_rr(list, val);
-    if (ret < 0)
-        return (ft_rra(list, option));
-    else if (ret > 0)
-        return (ft_ra(list, option));
-    return (NULL);
+
+
+int         ft_finish_tranch(t_list *a)
+{
+    if (a->begin->val < a->tranch.tranch1)
+        return (a->tranch.tranch1finish);
+    if (a->begin->val < a->tranch.tranch2)
+        return (a->tranch.tranch2finish);
+    if (a->begin->val < a->tranch.tranch3)
+        return (a->tranch.tranch3finish);
+    if (a->begin->val < a->tranch.tranch4)
+        return (a->tranch.tranch4finish);
+    if (a->begin->val < a->tranch.tranch5)
+        return (a->tranch.tranch5finish);
+    return (0);
+}
+
+void        ft_is_tranch(t_list *a, int val)
+{
+    a->tranch.mode = (val > a->tranch.tranch5) ? TRANCH5 : a->tranch.mode; 
+    a->tranch.mode = (val < a->tranch.tranch5) ? TRANCH4 : a->tranch.mode; 
+    a->tranch.mode = (val < a->tranch.tranch4)  ? TRANCH3 : a->tranch.mode; 
+    a->tranch.mode = (val < a->tranch.tranch3) ? TRANCH2 : a->tranch.mode; 
+    a->tranch.mode = (val < a->tranch.tranch2) ? TRANCH1 : a->tranch.mode; 
+}
+
+// make the tranch finish
+void        ft_tranch_finish(t_list *a)
+{
+    a->tranch.tranch1finish = (a->tranch.mode == TRANCH1) ? TRUE :  a->tranch.tranch1finish; 
+    a->tranch.tranch2finish = (a->tranch.mode == TRANCH2) ? TRUE :  a->tranch.tranch2finish;
+    a->tranch.tranch3finish = (a->tranch.mode == TRANCH3) ? TRUE :  a->tranch.tranch3finish;
+    a->tranch.tranch4finish = (a->tranch.mode == TRANCH4) ? TRUE :  a->tranch.tranch4finish;
+    a->tranch.tranch5finish = (a->tranch.mode == TRANCH5) ? TRUE :  a->tranch.tranch5finish;
+    a->tranch.mode = NOTHING;
 }
 
 int     ft_return_tranch_val(t_list *a)
@@ -111,20 +122,17 @@ int     ft_next_bigger_tranch(t_list *a, t_list *b)
 
     i = 0;
     tranch = ft_return_tranch_val(a);
-    tranch--;
     if (!b->numb)
         return (tranch);
     while (i < 20)
     {
-        tranch--;
+        tranch++;
         if ((ft_search_position_from_top(b->begin ,tranch) == 1000))
             return (tranch);
         i++;
     }
     return (1000);
 }
-
-
 
 void	ft_first_tranch(t_list *a)
 {
