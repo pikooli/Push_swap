@@ -122,8 +122,8 @@ int     ft_next_bigger_tranch(t_list *a, t_list *b)
 
     i = 0;
     tranch = ft_return_tranch_val(a);
-    if (!b->numb)
-        return (tranch);
+    if ((ft_search_position_from_top(b->begin ,tranch) == 1000))
+            return (tranch);
     while (i < 20)
     {
         tranch++;
@@ -137,7 +137,7 @@ int     ft_next_bigger_tranch(t_list *a, t_list *b)
 void	ft_first_tranch(t_list *a)
 {
 	int ret;
-    int tmp;
+    // int tmp;
 
     if (a->tranch.mode != NOTHING)
         return ;
@@ -146,35 +146,59 @@ void	ft_first_tranch(t_list *a)
 
     if (!a->tranch.tranch1finish)
     {
-        ret = ft_search_position_from_top(a->begin, a->tranch.tranch1);
+        // ret = ft_search_position_from_top(a->begin, a->tranch.tranch1);
         a->tranch.mode = TRANCH1;
+        return ;
     }
     if (!a->tranch.tranch2finish)
     {
-        tmp = ft_search_position_from_top(a->begin, a->tranch.tranch2);
-        a->tranch.mode = tmp < ret ? TRANCH2 : a->tranch.mode;
-        ret = tmp < ret ? tmp : ret;
+        // tmp = ft_search_position_from_top(a->begin, a->tranch.tranch2);
+        // a->tranch.mode = tmp < ret ? TRANCH2 : a->tranch.mode;
+        // ret = tmp < ret ? tmp : ret;
+        a->tranch.mode = TRANCH2;
+        return ;
     }
     if (!a->tranch.tranch3finish)
     {
-        tmp = ft_search_position_from_top(a->begin, a->tranch.tranch3);
-        a->tranch.mode = tmp < ret ? TRANCH3 : a->tranch.mode;
-        ret = tmp < ret ? tmp : ret;
+        // tmp = ft_search_position_from_top(a->begin, a->tranch.tranch3);
+        // a->tranch.mode = tmp < ret ? TRANCH3 : a->tranch.mode;
+        // ret = tmp < ret ? tmp : ret;
+        a->tranch.mode = TRANCH3;
+        return ;
     }
     if (!a->tranch.tranch4finish)
     {
-        tmp = ft_search_position_from_top(a->begin, a->tranch.tranch4);
-        a->tranch.mode = tmp < ret ? TRANCH4 : a->tranch.mode;
-        ret = tmp < ret ? tmp : ret;
+        // tmp = ft_search_position_from_top(a->begin, a->tranch.tranch4);
+        // a->tranch.mode = tmp < ret ? TRANCH4 : a->tranch.mode;
+        // ret = tmp < ret ? tmp : ret;
+        a->tranch.mode = TRANCH4;
+        return ;
     }
     if (!a->tranch.tranch5finish)
     {
-        tmp = ft_search_position_from_top(a->begin, a->tranch.tranch5);
-        a->tranch.mode = tmp < ret ? TRANCH5 : a->tranch.mode;
-        ret = tmp < ret ? tmp : ret;
+        // tmp = ft_search_position_from_top(a->begin, a->tranch.tranch5);
+        // a->tranch.mode = tmp < ret ? TRANCH5 : a->tranch.mode;
+        // ret = tmp < ret ? tmp : ret;
+        a->tranch.mode = TRANCH5;
+        return ;
     }
-    ft_printf("tranchmode ",a->tranch.mode);
+}
 
+int     ft_tranch_complete(t_list *a, t_list *b)
+{
+    if (!b->begin)
+        return (FALSE);
+    if (a->tranch.mode == TRANCH5 && b->begin->val == a->tranch.tranch5 + 20)
+        return (TRUE);
+    if (a->tranch.mode == TRANCH4 && b->begin->val == a->tranch.tranch4 + 20)
+        return (TRUE);
+    if (a->tranch.mode == TRANCH3 && b->begin->val == a->tranch.tranch3 + 20)
+        return (TRUE);
+    if (a->tranch.mode == TRANCH2 && b->begin->val == a->tranch.tranch2 + 20)
+        return (TRUE);
+    if (a->tranch.mode == TRANCH1 && b->begin->val == a->tranch.tranch1 + 20)
+        return (TRUE);
+    return (FALSE);
 }
 
 void    ft_print_finish_tranch(t_list *a)

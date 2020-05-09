@@ -27,6 +27,7 @@ int     ft_next_bigger_tranch(t_list *a, t_list *b);
 void    ft_print_finish_tranch(t_list *a);
 char    *ft_final(t_list *a, t_list *b, t_option *option);
 void        ft_help_tranch(t_list *a, t_list *b, t_option *option);
+int     ft_tranch_complete(t_list *a, t_list *b);
 
 
 #endif
