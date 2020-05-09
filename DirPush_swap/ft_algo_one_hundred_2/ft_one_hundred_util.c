@@ -1,8 +1,8 @@
 #include "main.h"
-#include "ft_algo_one_hundred.h"
+#include "ft_algo_one_hundred_2.h"
 
 
-char    *ft_rotate(t_list *list, t_option *option, int val)
+char    *ft_rotate_a(t_list *list, t_option *option, int val)
 {   
     int ret;
 
@@ -17,7 +17,6 @@ char    *ft_rotate(t_list *list, t_option *option, int val)
         return (ft_ra(list, option));
     return (NULL);
 }
-
 
 int 		ft_r_or_rr(t_list *list, int val)
 {
@@ -63,6 +62,7 @@ void        ft_help_tranch(t_list *a, t_list *b, t_option *option)
     ft_printf("search next = ",ft_next_bigger_tranch(a, b));
     ft_printf("tranch on", a->tranch.mode);
     ft_printf("option mode : ", option->modetri);
+    ft_printf("\nchoised number to put ", ft_next_numb(a, b));
 }
 
 
@@ -124,7 +124,7 @@ int     ft_next_bigger_tranch(t_list *a, t_list *b)
     tranch = ft_return_tranch_val(a);
     if ((ft_search_position_from_top(b->begin ,tranch) == 1000))
             return (tranch);
-    while (i < 20)
+    while (i < 19)
     {
         tranch++;
         if ((ft_search_position_from_top(b->begin ,tranch) == 1000))
@@ -133,7 +133,6 @@ int     ft_next_bigger_tranch(t_list *a, t_list *b)
     }
     return (1000);
 }
-
 void	ft_first_tranch(t_list *a)
 {
 	int ret;
@@ -188,15 +187,15 @@ int     ft_tranch_complete(t_list *a, t_list *b)
 {
     if (!b->begin)
         return (FALSE);
-    if (a->tranch.mode == TRANCH5 && b->begin->val == a->tranch.tranch5 + 20)
+    if (a->tranch.mode == TRANCH5 && b->begin->val == a->tranch.tranch5 + 19)
         return (TRUE);
-    if (a->tranch.mode == TRANCH4 && b->begin->val == a->tranch.tranch4 + 20)
+    if (a->tranch.mode == TRANCH4 && b->begin->val == a->tranch.tranch4 + 19)
         return (TRUE);
-    if (a->tranch.mode == TRANCH3 && b->begin->val == a->tranch.tranch3 + 20)
+    if (a->tranch.mode == TRANCH3 && b->begin->val == a->tranch.tranch3 + 19)
         return (TRUE);
-    if (a->tranch.mode == TRANCH2 && b->begin->val == a->tranch.tranch2 + 20)
+    if (a->tranch.mode == TRANCH2 && b->begin->val == a->tranch.tranch2 + 19)
         return (TRUE);
-    if (a->tranch.mode == TRANCH1 && b->begin->val == a->tranch.tranch1 + 20)
+    if (a->tranch.mode == TRANCH1 && b->begin->val == a->tranch.tranch1 + 19)
         return (TRUE);
     return (FALSE);
 }
@@ -209,3 +208,4 @@ void    ft_print_finish_tranch(t_list *a)
     ft_printf("tranch 4 ",a->tranch.tranch4finish);
     ft_printf("tranch 5 ",a->tranch.tranch5finish);
 }
+

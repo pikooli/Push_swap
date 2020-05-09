@@ -85,6 +85,7 @@ void		ft_print_result(t_instructions *instruct, t_option option)
 	ft_putstr("---------------\n");
 	ft_print_list(instruct->a->begin, instruct->b->begin, option);
 	ft_print_step(instruct);
+	ft_putstr("\n --------- finish -------------\n");
 }
 
 void		ft_print_step(t_instructions *instructions)

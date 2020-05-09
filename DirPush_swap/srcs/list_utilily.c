@@ -67,7 +67,9 @@ int			ft_closer_big(t_list *list, int val)
 	long diff;
 	long tmpdiff;
 	t_maille *tmp;
-	
+
+	if (!list->begin)	
+		return (TRUE);
 	tmp = list->begin;
 	diff = (long)tmp->val - (long)val;
 	diff = diff > 0 ? diff : -diff;
@@ -88,6 +90,8 @@ int			ft_closer_small(t_list *list, int val)
 	long tmpdiff;
 	t_maille *tmp;
 	
+	if (!list->begin)	
+		return (TRUE);
 	tmp = list->begin;
 	diff = (long)tmp->val - (long)val;
 	diff = diff > 0 ? diff : -diff;

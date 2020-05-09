@@ -20,7 +20,9 @@ ft_algo_3/ft_algo_3.c\
 ft_algo_4/ft_algo_4.c\
 ft_algo_5/ft_algo_5.c\
 ft_algo_one_hundred_2/ft_algo_one_hundred.c\
-ft_algo_one_hundred_2/ft_one_hundred_util.c
+ft_algo_one_hundred_2/ft_one_hundred_util.c\
+ft_algo_one_hundred_2/ft_one_hundred_util2.c\
+ft_algo_one_hundred_2/ft_reposition_b.c
 
 SRCS = $(addprefix srcs/, $(SRC))
 
