@@ -19,6 +19,7 @@ fclean:
 re:	
 	@make fclean
 	@make 
+	@rm -rf txt
 test: 
 	./push_swap -v -c 2 1 3 6 5 8
 	

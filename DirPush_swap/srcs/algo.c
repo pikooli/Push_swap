@@ -53,7 +53,6 @@ t_instructions *ft_algo_suivie(t_list *a, t_instructions *instruct, t_option *op
 
 	if (option->modeinput == HUNDRED)
 		ft_prepare_tranch_hundred(a);
-	ft_print_tranch(a);
 	option->modetri = NOTHING;
 	if (!(tmp = ft_prepare_algo(a, option, (*algo))))
 	{

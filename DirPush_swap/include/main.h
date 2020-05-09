@@ -170,7 +170,7 @@ void			ft_print_step(t_instructions *instructions);
 void			ft_print_last_step(t_instructions *instruct);
 void   			ft_rev_print(t_list *a);
 void			ft_print_2(t_maille *a, t_maille *b);
-void			ft_print_tranch(t_list *a);
+void		ft_printf(char *str, int nb);
 
 /*
 ** instruction

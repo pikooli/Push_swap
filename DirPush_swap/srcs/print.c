@@ -168,17 +168,10 @@ void		ft_print_last_step(t_instructions *instruct)
 	}
 }
 
-void	ft_print_tranch(t_list *a)
+void		ft_printf(char *str, int nb)
 {
-	ft_putstr("----------- tranche --------\n");
-	ft_putnbr(a->tranch.tranch1);
-	ft_putstr("\n");
-	ft_putnbr(a->tranch.tranch2);
-	ft_putstr("\n");
-	ft_putnbr(a->tranch.tranch3);
-	ft_putstr("\n");
-	ft_putnbr(a->tranch.tranch4);
-	ft_putstr("\n");
-	ft_putnbr(a->tranch.tranch5);
+	ft_putstr(str);
+	ft_putstr(" : ");
+	ft_putnbr(nb);
 	ft_putstr("\n");
 }
