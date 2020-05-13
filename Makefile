@@ -75,7 +75,7 @@ TREE = 2 1 0
 all: $(NAME_PS)
 
 $(NAME_PS): $(LIBFT) $(NAME_CK) $(OBJECTS_DIRECTORY) $(OBJECTS) $(OBJECTS_PS)
-	@$(CC) $(LIBRARIES) $(INCLUDES) $(OBJECTS) $(OBJECTS_PS) -o $(NAME_PS)
+	@$(CC) $(FLAGS) libft/objects/* $(INCLUDES) $(OBJECTS) $(OBJECTS_PS) -o $(NAME_PS)
 	@echo "$(NAME_PS) : $(GREEN)Compilation done.$(RESET)"
 
 $(LIBFT):
