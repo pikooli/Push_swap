@@ -8,7 +8,7 @@ OBJECTS_DIRECTORY = objects/
 
 INCLUDES_DIRECTORY = ./includes/
 
-SOURCE_DIRECTORY = ./SRCS/
+SOURCE_DIRECTORY = srcs/
 
 SRC = check.c\
 instruction.c\
@@ -36,23 +36,18 @@ OBJECTS = $(addprefix objects/, $(OBJS))
 
 FLAGS = -Wall -Wextra -Werror
 
-
 all : $(NAME)
 
 $(NAME) : $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@echo "$(GREEN)]$(RESET)"
 	@$(CC) $(FLAG) $(OBJECTS) -o $(NAME)
-	@echo "$(NAME) :$(GREEN)Compilation done.$(RESET)"
+	@echo "$(NAME) : $(GREEN)Compilation done.$(RESET)"
 
 $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@echo "$(NAME) : $(GREEN)Object directory create.$(RESET)"
-	@echo "$(GREEN)[$(RESET)\c"
-
-$(OBJECTS_DIRECTORY)%.o : $(SOURCE_DIRECTORY)%.c
-	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
-	@echo "$(GREEN).$(RESET)\c"
-
+	@$(CC) $(FLAGS) $(INCLUDES) $(SRCS) -c
+	@mv $(OBJS) $(OBJECTS_DIRECTORY)
+	
 clean: 
 	@rm -rf $(OBJECTS) $(OBJECTS_DIRECTORY)
 	@echo "$(NAME) : $(RED)Clean done.$(RESET)"
@@ -61,6 +56,8 @@ fclean: clean
 	@rm -rf Checker
 	@echo "$(NAME) : $(RED)Fclean done.$(RESET)"
 
+re: fclean all
+	
 # COLORS
 
 GREEN = \033[0;32m

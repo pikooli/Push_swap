@@ -75,7 +75,6 @@ TREE = 2 1 0
 all: $(NAME_PS)
 
 $(NAME_PS): $(LIBFT) $(NAME_CK) $(OBJECTS_DIRECTORY) $(OBJECTS) $(OBJECTS_PS)
-	@echo "$(GREEN)$(RESET)"
 	@$(CC) $(LIBRARIES) $(INCLUDES) $(OBJECTS) $(OBJECTS_PS) -o $(NAME_PS)
 	@echo "$(NAME_PS) : $(GREEN)Compilation done.$(RESET)"
 
@@ -89,10 +88,9 @@ $(NAME_CK):
 $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@echo "$(NAME_PS): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
+	@$(CC) $(FLAGS) $(INCLUDES) $(SOURCES) $(SOURCES_PS) -c
+	@mv $(OBJECTS_LIST) $(OBJECTS_LIST_PS) $(OBJECTS_DIRECTORY)
 
-$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
-	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
-	@echo "$(GREEN).$(RESET)\c"
 
 clean:
 	@$(MAKE) -sC $(LIBFT_DIRECTORY) clean
