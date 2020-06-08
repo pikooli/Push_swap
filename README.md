@@ -44,9 +44,10 @@ exemple :
 To do this in the most effective way , I use the merge sort algorithme : 
 
 The basic is to cut the stack in 2 part and merge it.<br/>
-You keep in stack "a" all number that already in ascendant order. (exemple : 1 3 4 9)<br/>
-You push everything else in "b", you look at with number, in stack b, is optimal to be pushed in stack "a".<br/>
-When everything is pushed back you just have to rotate stack "a" to get the final solution.<br/>
+You keep in stack "a" as mush number as you can that already in ascendant order. (exemple : 1 3 4 9)<br/>
+You push everything else in "b". 
+You look at with number in stack "b", is optimal to be pushed in stack "a".<br/>
+When everything is pushed back in "a" you just have to rotate stack "a" to get the final solution.<br/>
 
 ------------------------------------------------- Source --------------------------------------------------------------------
 http://sdz.tdct.org/sdz/le-tri-fusion.html
