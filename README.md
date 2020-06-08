@@ -49,7 +49,7 @@ You push everything else in "b".
 You look at with number in stack "b", is optimal to be pushed in stack "a".<br/>
 When everything is pushed back in "a" you just have to rotate stack "a" to get the final solution.<br/>
 
-------------------------------------------------- Source --------------------------------------------------------------------
+<p align="center">Source<p/>
 http://sdz.tdct.org/sdz/le-tri-fusion.html<br/>
 https://en.wikipedia.org/wiki/Merge_sort<br/>
 https://fr.wikipedia.org/wiki/Tri_fusion<br/>
