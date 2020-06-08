@@ -50,7 +50,7 @@ You look at with number in stack "b", is optimal to be pushed in stack "a".<br/>
 When everything is pushed back in "a" you just have to rotate stack "a" to get the final solution.<br/>
 
 ------------------------------------------------- Source --------------------------------------------------------------------
-http://sdz.tdct.org/sdz/le-tri-fusion.html
-https://en.wikipedia.org/wiki/Merge_sort
-https://fr.wikipedia.org/wiki/Tri_fusion
-https://hurna.io/fr/academy/algorithms/sort/merge_in_place.html
+http://sdz.tdct.org/sdz/le-tri-fusion.html<br/>
+https://en.wikipedia.org/wiki/Merge_sort<br/>
+https://fr.wikipedia.org/wiki/Tri_fusion<br/>
+https://hurna.io/fr/academy/algorithms/sort/merge_in_place.html<br/>
