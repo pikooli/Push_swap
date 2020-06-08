@@ -1,5 +1,5 @@
------------------------------------------ Push_Swap ---------------------------------------------
-
+**<p align="center">PUSH_SWAP<p/>**
+<hr/>
 You are given a list of number with no duplicata and you have to sort it by ascending order.
 
 You have 2 stack, "a" content all number and "b" with nothing, the methode of implementing the stack is up to you. 
@@ -43,10 +43,10 @@ exemple :
 
 To do this in the most effective way , I use the merge sort algorithme : 
 
-The basic is to cut the stack in 2 part and merge it.
-You keep in stack "a" the must number that already in ascendant order. (exemple : 1 3 4 9)
-You push everything else in "b", you look at with number, in stack b, is optimal to be pushed in stack "a".
-When everything is pushed back you just have to rotate stack "a" to get the final solution.
+The basic is to cut the stack in 2 part and merge it.<br/>
+You keep in stack "a" all number that already in ascendant order. (exemple : 1 3 4 9)<br/>
+You push everything else in "b", you look at with number, in stack b, is optimal to be pushed in stack "a".<br/>
+When everything is pushed back you just have to rotate stack "a" to get the final solution.<br/>
 
 ------------------------------------------------- Source --------------------------------------------------------------------
 http://sdz.tdct.org/sdz/le-tri-fusion.html
